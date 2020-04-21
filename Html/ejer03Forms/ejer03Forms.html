@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formularioejer03Forms</title>
+</head>
+<body>
+
+<h2>Formulario para entradas sin validacion</h2>
+
+<form action="./Respuesta.html" target="_blank" method="get">
+
+<ul>
+
+<li style="margin-top: 10px">
+	<label style="font-weight: bold " for="Apellido" Apellido> Apellido</label>
+		 <br> <input type="text" name="Ape" autofocus="autofocus">
+
+</li>
+
+
+<li>
+	<label style="font-weight: bold " for="Contrasena" lala> Contraseña</label> 
+		<br> <input type="password" name="contra">
+</li>
+
+<li>
+	<label style="font-weight: bold " for="oculto" > Oculto </label>
+		<br> <input type="hidden" name="ocultito">
+</li>
+
+
+<br><li>
+	<label style="font-weight: bold " for="Solo" > Campo de Solo Lectura </label>
+		<br> <input type="text" name="soloLectura" value="valorSoloLectura" readonly >
+</li>
+
+
+<br><li>
+	<label style="font-weight: bold " for="Deshab" > Campo deshabilitado :  </label>
+		<br> <input type="text" name="ValDes" value="valor deshabilitado" disabled="" >
+</li>
+
+
+<br><li>
+	<label style="font-weight: bold " >Practica deportes</label>
+		<br><input type="checkbox" id="sport" name="deportes" value="si"/>
+</li>
+
+<br><li>
+	<label style="font-weight: bold " >Practica Musical</label>
+		<br><input type="checkbox" id="Music" name="Musica" value="si"/>
+</li>
+
+
+<br><li>
+	<label style="font-weight: bold " >Practica Ppintura Artisitica</label>
+		<br><input type="checkbox" id="Paint" name="Pintura" value="si"/>
+</li>
+
+<br><li>
+	<label style="font-weight: bold ">Masculino</label>
+	<input type="radio" id="Masculino" name="Sexo" value="M" checked="checked">	
+	<label style="font-weight: bold ">Femenino</label>
+	<input type="radio" id="Femenino" name="Sexo" value="F" >	
+</li>
+
+
+<br><li>
+	<label style="font-weight: bold;" >Nivel de estudios</label>
+
+		<br><select id="Estudios" name="Estudios">
+			<option value="Pri" selected="selected">Primario</option>
+			<option value="Sec">Secundario</option>
+			<option value="Ter">Terciario</option>
+			<option value="Uni">Universitario</option>
+			<option value="Pos">Postgrado</option>
+		</select>
+	</li>
+
+<br><li>
+	<label style="font-weight: bold;" >Fecha y Hora</label>
+		<br><input type="date" name="Fecha">
+			<input type="time" name="hora">
+	</li>		
+
+<br><li>
+	<label style="font-weight: bold;" >Color</label>
+		<br><input type="Color" name="Color">
+
+
+<br><br><li>
+
+	<input type="submit" value="Enviar Formulario sin validacion" id="get" action="./Respuesta.html">
+
+
+</li>
+
+<br><li>
+
+	<input type="reset" value="Reset a valores predeterminados" id="get" action="./Respuesta.html">
+
+</li>
+</ul>
+</form>
+
+<br><h2>Formulario para entradas con validacion</h2>
+
+<form action="./Respuestas.html" target="_blank" method="get">
+<ul>	
+<br><li>
+	<label style="font-weight: bold;">Comentario (validacion por requerido) : </label>
+	<br><input type="text" name = "Comentario"   required="required">	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">Email con doble validacion(x@x y required) : </label>
+	<br><input type="Email" name = "User-Email"   placeholder="texto@texto" required="required" >	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">Numero entero limitado(validacion por tipo numerico y cotas) : </label>
+	<br><input type="number" name = "num-entero" min="1" max="5"  >	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">Numero Decimal : </label>
+	<br><input type="number" name = "num-decimal" min="0" max="9" step="0.1"required="required"  >	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">URL ( Validacion por requeriudo http://) : </label>
+	<br><input type="URL" name = "sitio" min="0" max="9" placeholder="http:// yyy" required="required" >	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">Pattern de validacion : </label>
+	<br><input type="text" pattern="[a-z]{3}[1-2]{2}" name = "mascara" title="3 letras y dos numeros que sean 1 o 2 solamente" required="required" >	  
+	</li>
+
+
+<br><li>
+	<label style="font-weight: bold;">Pattern de validacion : </label>
+	<br><input type="text" pattern="[(]{1}[+]{1}[54]{2}[)]{1}[11]{2}[0-9]{8}" name = "celu" title="(+54)11xxxxx"required="required"  >	  
+	</li>
+
+<br><li>
+
+	<input type="submit" value="Enviar Formulario con validacion" id="get"  action="./Respuestas.html">
+
+
+</li>
+
+<br><li>
+
+	<input type="reset" value="Reset a valores predeterminados" id="get" >
+
+</li>
+</ul>    <!--  SIN <ul> no funciona el action del form ( no nos manda a la pestaña siguiente que dice respuesta)-->
+</form>
+
+
+<h2>DATOS DEL ALUMNO</h2>
+
+<p>
+	<br>Nicolas Alfredo Minnicelli
+	<br>Legajo : 25230
+	<br>TUP TN 2020
+	<br>Laboratorio de Computacion III
+	<br>E-mail : nam-1992@hotmail.com
+	<br>Prof : Gustavo German WIttbecker
+
+</p>
+
+
+
+
+</body>
+</html>

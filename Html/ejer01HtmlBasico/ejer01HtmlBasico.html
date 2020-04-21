@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejer01HtmlBasico</title>
+</head>
+<body>
+<h1><br>Primer parrafo corto </br></h1>
+
+<h2><br>Segundo parrafo corto </br></h2>
+
+<h1><br>Grupo de elementos de navegacion </br></h1>
+
+<li>
+	<a href="http://google.com"  target="_blank">Google</a>
+</li>
+
+<li>
+	<a href="http://yahoo.com.ar"  target="_blank">Yahoo</a>
+</li>
+
+<li>
+	<a href="http://youtube.com.ar"  target="_blank">Youtube</a>
+
+</li>
+<hr/>
+<br>
+<li>
+	<a href="ejer01OtraPagina_en_misma_pestana.html" >Enlace a otra pagina en la misma pestaña</a>
+
+	<a href="ejer01Otra_Pagina_Ootra_Pestana.html"  target="_blank">Enlace a otra pagina en otra pestaña</a>
+
+
+</li>
+
+<hr/>
+
+</br>
+
+<header>
+	<h1>Cuerpo principal del contenido </h1>
+</header>
+
+<p>
+	las etiquetas semanticas de html5 son etiquetas que marcan los limites de distintos tipos de contenido.
+	se llaman semanticas porque nada tienen que ver con la estructura aintactica del documento ni con su estilo.
+	Tienen que ver pura y exclusivamente con el contenido.
+	Son ampliamente utilizadas por los robots de busqueda para indexar el sitio donde reside nuestro/s documentos.
+	pueden ser ubucadas en cualquier parte anidadas dentro de body .
+	Pueden haber varias de un mismo tipo y pueden anidarse entre ellas .
+	Conforman una estructura semantica a nuestro documento.
+</p>
+
+
+<h2>Seccion de etiquetas semanticas estructurales mas importantes : </h2>
+
+<li>HEADER</li>
+<li>FOOTER</li>
+<li>SECTION</li>
+<li>ARTICLE</li>
+<li>NAV</li>
+<li>ADRESS</li>
+
+<P>las etiquetas semanticas estructurales estan relacionadas directamente con el significado del contenido y no con los estilos y la posiciones dentro del documento</P>
+
+<h2>Reglas para etiqeutas semanticas</h2>
+
+<li>Los distintos tipos de contenido se pueden asociar a etiquetas SECTION</li>
+<li>Las unidades de contenido se asocian a las etiquetas ARTICLE.O sea que un SECTION anida multiples ARTICLES </li>
+<li>Las etiquetas HEADER Y FOOTER pueden ser anidadas dentro de otras HEADER o FOOTER.Osea un FOOTER podria anidar otras HEADER Y FOOTER</li>
+<li>La etiqueta NAV debe sr unica en el documento y corresponde a los elementos de navegacion del documento.</li>
+<li>Reservar etiqueta h1 para usar dentro de etiquetas top lever como main , header o footer.</li>
+
+<h3>Section de imagenes</h3>
+<p>
+	En esta seccion ostraremos imagenes representativas de nuestro sitio
+
+</p>
+
+	<br>
+
+		La siguiente imagen esta insertada en tamaño natural
+
+	</br>
+
+	<img src="./lasmeninas.jpg"/>
+
+
+<p>
+	<br>
+		La misma imagen , cuadro de Velasquez (200px x 236px),con distintos atributos widht:
+	</br>
+		<br>
+			de acuerdo a la dimension de la imagen , solo la primera no pixelara:
+		</br>
+
+			<br>
+				Cada elemento img se ubica al lado de la anterior hasta completar el ancho de la ventana activa(view port)
+
+
+			</br>
+
+				<br>
+					Todas las siguientes imagenes se veran deformadas por haber definido doble parametro de estilo(ancho y alto).
+				<br/>
+
+<img alt="las meninas"style="width: 100px;height: 500px"src="./lasmeninas.jpg" />
+
+<img alt="las meninas"style="width: 200px;height: 500px"src="./lasmeninas.jpg" />
+
+<img alt="las meninas"style="width: 300px;height: 500px"src="./lasmeninas.jpg" />
+
+<img alt="las meninas"style="width: 200px;height: 500px"src="./lasmeninas.jpg" />
+
+<img alt="las meninas"style="width: 190px;height: 500px"src="./lasmeninas.jpg" />
+
+</p>
+
+<hr/>
+
+<h2>Section de video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g4SWBsDRfFw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<video src="video.mp4" width="640" height="480"></video>  
+<!-- ESTO ES PARA INSERTAR VIDEOS QUE ESTAN EN MI PC -->
+
+<h2>Anclajes</h2>
+
+<h3>Puntos de anclajes</h3>
+
+<h2>DATOS DEL ALUMNO</h2>
+
+<p>
+	<br>Nicolas Alfredo Minnicelli
+	<br>Legajo : 25230
+	<br>TUP TN 2020
+	<br>Laboratorio de Computacion III
+	<br>E-mail : nam-1992@hotmail.com
+	<br>Prof : Gustavo German WIttbecker
+
+</p>
+
+
+
+</body>
+</html>
