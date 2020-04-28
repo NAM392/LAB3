@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>
+		css02SelectorDeClase</title>
+
+		<meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
+		<style>
+			
+		p.claseAcotacion{
+			text-align: center; /*comentario*/
+			font-size: 18px;
+			color: blue;
+			font-style: italic;
+			border-style: solid;
+			border-width: thin;
+			border-color: blue
+		}	
+		p.claseDestacado{
+			text-align: left; /*comentario*/
+			font-size: 18px;
+			color: black;
+			font-style: italic;
+			font-weight: bold;
+
+		}	
+		p.claseAyuda{
+			text-align: center; /*comentario*/
+			font-size: 15px;
+			width: 60%;
+			height:15%;
+			color: orange;
+			font-style: italic;
+			border-style: solid;
+			border-color: yellow;
+			padding: 10px 5px 10px 6px;
+
+
+			}
+		p.claseContenidoComun{
+			text-align: left; /*comentario*/
+			font-size: 12px;
+			color: black;
+			font-style: italic;
+			font-weight: normal;
+		}
+		p#idUnico{
+
+			text-align: left; 
+			/*el parrafo atributo "idUnico" tomara este estilo*/
+			width: 40%
+			height:15%;
+			font-size: 10px;
+			color: red;
+			font-style: italic;
+			border-style: solid;
+			border-width: thin;
+			border-color: red;
+			border-top: width;4
+		}		
+
+		img.imagenAI50{
+			max-width: 50%;
+		}
+
+
+
+
+
+
+		</style>
+
+
+</head>
+<body>
+
+<h1> En esta pagina no se deben escribir etiquetas con atributos style</h1>
+
+<h2>Todo el estilo se encientra definido en la etiqueta style , dentro de la etiqueta head del documento</h2>
+
+
+<p> 
+
+	este parrafo contiene un un grupo de palabras delimitado por una etiqueta "span". El comienzo es aqui : <span class="claseDestacado"> Grupo de palabras destacadas con el estilo claseDestacado</span>
+</p>
+
+
+<p class="claseAcotacion">Este parrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseAcotacion"</p>
+
+<p class="claseDestacado">Este parrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseDestacado"</p>
+
+<p class="claseAyuda" >Este parrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseAyuda"</p>
+
+<p class="claseContenidoComun">Este parrafo toma el estilo definido en la etiqueta style en el header del documento como class="claseContenidoComun"</p>
+
+
+<p id="idUnico" >Parrafo formateado por un estilo particular definido 
+en el style del documento para un parrafo especifico 
+id="idUnico" </p>
+
+<h2>TODAS LAS IMAGENES CON CLASS = "imagenAI50" EN ESTA PAGINA SE ENCUENTRAN LIMITADAS AL 50% DEL ANCHO DEL VIEWPORT MAS ALLA DE SU TAMAÑO REAL EN PIXELES </h2>
+
+
+<img src="./casas.jpg" class="imagenAI50">
+
+
+<h2>DATOS DEL ALUMNO</h2>
+
+<p>
+	<br>Nicolas Alfredo Minnicelli
+	<br>Legajo : 25230
+	<br>TUP TN 2020
+	<br>Laboratorio de Computacion III
+	<br>E-mail : nam-1992@hotmail.com
+	<br>Prof : Gustavo German WIttbecker
+
+</p>
+
+</body>
+</html>

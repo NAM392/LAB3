@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css08CentradoYPadding</title>
+	<meta http-equiv="content-type" content="text/html"  charset="utf-8">
+	<style >
+		
+		div.estiloX{
+
+			height: 130px;
+			width: 50%;
+			background: lightblue;
+			text-align: left;/*el texto empieza desde la izquierda*/
+			margin: auto; /*la caja contenedora queda centrada*/
+
+		}
+
+		div.estiloY{
+
+			height: 130px;
+			max-width: 50%;
+			background: lightgreen;
+			text-align: left;
+			padding-left: 25%;
+			padding-right: 10%;
+		   
+
+		}
+
+		div.estiloZ{
+
+			height: 130px;
+			 width:50%;
+			 margin: auto;  /*IMPORTANTISIMO !!!*/
+			background:#F5D5D5;
+			box-sizing: border-box;
+			text-align: left;
+			padding-left: 10%;;
+			
+			
+
+		}
+
+	</style>
+
+	
+
+</head>
+<body>
+
+<h1>Los siguientes elementos tienen un ancho del 50% de la ventana</h1>
+
+
+<div class="estiloX" >
+	texto en interior
+	<br>texto en interior
+	<br>texto en interior
+	<br>texto en interior
+	<br>texto en interior
+	<br>texto en interior
+	<br>texto en interior
+</div>
+<div class="estiloY" >
+	texto en interior con padding y sin box_sizing 
+	<br>texto en interior con padding y sin box_sizing
+	<br>texto en interior con padding y sin box_sizing
+	<br>texto en interior con padding y sin box_sizing
+	<br>texto en interior con padding y sin box_sizing
+	<br>texto en interior con padding y sin box_sizing
+	<br>texto en interior con padding y sin box_sizing
+</div>
+<div class="estiloZ" >
+	texto en interior con padding y con box_sizing 
+	<br>texto en interior con padding y con box_sizing
+	<br>texto en interior con padding y con box_sizing
+	<br>texto en interior con padding y con box_sizing
+	<br>texto en interior con padding y con box_sizing
+	<br>texto en interior con padding y con box_sizing
+	<br>texto en interior con padding y con box_sizing
+</div>
+
+
+
+
+
+</body>
+</html>
