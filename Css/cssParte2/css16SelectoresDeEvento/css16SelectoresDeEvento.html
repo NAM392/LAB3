@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css16SelectoresDeEvento</title>
+	<meta http-equiv="content-type" content="text/html"  charset="utf-8">
+	<style >
+
+			img.ImagenContenida{
+				max-width: 100%;
+				max-height: 100%;
+				float: center;
+			}
+
+			div.Fondo{
+				height: 300px;
+				width: 90%;
+				background-color: lightblue;
+				margin: 10px;
+
+			}
+
+			div.BTopcion {
+
+				height: 40px;
+				width: 10%;
+				background-color: grey;
+				color: black;
+				display: flex;
+				border-style: solid;
+				border-color: blue;
+				align-content: center;
+				align-items: center;
+				justify-content: center;
+				float: left;
+
+
+
+			}
+			div.BTopcion:hover{
+
+				background-color: blue;
+				color: white;
+
+
+			}
+			div.BTopcion:active{
+
+				background-color: yellow;
+				color: red;
+							
+			}
+
+			div.nuevaFila{
+				margin: 0;
+				margin-bottom: 20px;
+				clear: both;
+			}
+
+			div.Cuadros{
+				height: 100px;
+				width: 10%;
+				border-style: solid;
+				border-color: black;
+				float: left;
+
+			}
+			div.Cuadros:active{
+				height: 400px;
+				width: 70%;
+				border-style: solid;
+				border-color: black;
+				float: left;
+
+
+
+			}
+
+			input{
+					display:block;
+					width: 150px; 
+
+			}
+			input:focus{
+				background-color: #FCF3CF;
+			}
+
+			label.Entrada{
+				font-weight: bold;
+			
+
+			}
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="Fondo" >
+	
+	<div class="BTopcion"  > 
+		<a href="./respuesta.html" target="_blank">Opcion 1.</a>
+	</div>
+
+	<div class="BTopcion"  > 
+		<a href="./respuesta2.html" target="_blank">Opcion 2.</a>
+	</div>
+
+	<div class="BTopcion"  > 
+		<a href="./respuesta3.html" target="_blank">Opcion 3.</a>
+	</div>
+	
+	<div class="nuevaFila" ></div>	
+
+	<label class="Entrada" for="Apellido" Apellido> Apellido</label>
+	 <br> <input type="text" name="Ape" >
+	
+	<label class="Entrada" for="Nombres" Apellido> Nombres</label>
+	 <br> <input type="text" name="Nom" >
+
+	 <br>
+
+	 <div class="Cuadros" > <img class="ImagenContenida" src="./cerro7c.jpg">.</div>
+	  <div class="Cuadros" ><img class="ImagenContenida" src="./mendoza.jpg">.</div>
+	   <div class="Cuadros" ><img class="ImagenContenida" src="./lagopuelo.jpg"></div>
+	    <div class="Cuadros" ><img class="ImagenContenida" src="./pumas.jpg"></div>
+
+
+
+</div>
+
+<h2>DATOS DEL ALUMNO</h2>
+
+<p>
+	<br>Nicolas Alfredo Minnicelli
+	<br>Legajo : 25230
+	<br>TUP TN 2020
+	<br>Laboratorio de Computacion III
+	<br>E-mail : nam-1992@hotmail.com
+	<br>Prof : Gustavo German Wittbecker
+
+</p>
+
+</body>
+</html>
