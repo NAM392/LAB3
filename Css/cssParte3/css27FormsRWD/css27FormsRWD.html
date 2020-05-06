@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css27FormsRWD</title>
+	<meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
+
+	<style>
+		
+		label{
+
+			display: block;
+			font-weight: bold;
+			font-size: 12px;
+
+
+		}
+
+		div.barraControl{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			
+			/*height: 50%;*/
+
+			height: 10%;
+			width: 100%;
+			background-color: grey;
+
+
+
+			
+			
+
+		}
+
+		div.Fondo{
+			height: 100%;
+			width: 100%;
+			background-color:#CFCECC ;
+			margin: 0;
+			
+		}
+
+/*		div.Fondo{
+				height: 440px;
+				width: 80%;
+				align-content: center;;
+				background-color: #E3B1D2;
+				margin: 10px;
+				margin-left: 10%;
+
+				  centrar las imagenes 
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+			}
+
+		*/
+
+
+		html , body 
+		{
+			height: 100%;
+			width: 100%;
+
+
+		}
+
+		.boton{
+			display: block;
+			width: 10%;
+			height: 80%;
+			background-color: #CFCECC;
+			cursor: pointer;
+			border-style: solid;
+			border-color: black;
+			border-width: 1px;
+
+				align-items: center;
+				justify-content: center;
+
+
+
+
+		}
+
+		form{
+
+			height: 100%;
+			width:100%;
+			
+			
+			background-color:#CFCECC ;
+			margin: 0;
+
+
+
+		
+
+		}
+
+		.entrada {
+			text-align: left;
+			height: 19.8%;
+			width: 19.8%;
+			float: left;
+			background-color:#CFCECC ;
+
+
+
+			border-style: solid;
+			border-color: black;
+			border-width: 1px;
+
+
+				
+				
+				align-items: center;			
+
+			
+		}
+
+
+		header {
+				height: 10%;
+				width: 100%;
+				padding-left: 0%;
+				font-size: 22px;
+				color: black;
+				background-color: #3E527C;
+
+
+				align-items: center;
+				justify-content: center;
+				display: flex;
+
+			}
+
+			div.nuevaFila {
+				clear: both;
+				padding-top: 30px;
+			}
+
+
+
+
+		 footer{
+		 	height: 10%;
+		 	width: 100%;
+		 	background-color: #3E527C;
+				font-size: 22px;
+				color: black;
+
+				align-items: center;
+				justify-content: center;
+				display: flex;
+
+		 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+
+
+
+
+
+
+</head>
+<body>
+
+
+	<header>Formulario</header>
+	<div class="Fondo" >
+		
+		
+		
+
+		<form action="./Respuesta.html" target="_blank" method="get" >
+
+			<div class="entrada" >
+			<label for="Apellido"  Apellido>1Apellido</label>
+		 <br> <input type="text" name="Ape" autofocus="autofocus">
+		 </div>
+
+
+		 <div class="entrada" >
+		<label for="Nombres"   >2Nombres</label>
+		 <br> <input type="text" name="NOM" autofocus="autofocus">
+		 </div>
+
+
+		 <div class="entrada" >
+		<label for="Contrasena"  >3Contraseña</label>
+		 <br> <input type="password" name="password" autofocus="autofocus">
+		 </div>
+
+
+
+		 <div class="entrada" >
+		<label for="Deshab"> 4Campo deshabilitado :  </label>
+		<br> <input type="text" name="ValDes" value="valor deshabilitado" disabled="" >
+		</div>
+
+
+
+		<div class="entrada" >
+		<label>5Fecha y Hora</label>
+		<br><input type="date" name="Fecha">
+			<input type="time" name="hora">
+		</div>	
+
+		<div class="entrada" >	
+		<label for="DNI" >6DNI</label>
+		 <br> <input type="text" name="dni" autofocus="autofocus">
+		 </div>
+
+
+
+		 <div class="entrada" >
+		<label >7Actividades extracurriculares</label>			
+		<br>
+		<label>Musica</label>
+		<input type="checkbox" id="music" name="musica" value="si"/>
+		<br>
+		<label>Pintura Artisitica</label>
+		<input type="checkbox" id="paint" name="pintura" value="si"/>
+		<br>
+		<label>Deportes</label>
+		<input type="checkbox" id="Sport" name="deporte" value="si"/>
+		<label>Teatro</label>
+		<input type="checkbox" id="theatre" name="teatro" value="si"/>
+		</div>
+
+
+
+
+		<div class="entrada" >
+		<label>8Sexo</label>	
+		<label>Masculino</label>
+		<input type="radio" id="Masculino" name="Sexo" value="M" checked="checked">	
+		<label>Femenino</label>
+		<input type="radio" id="Femenino" name="Sexo" value="F" >				
+		</div>
+
+
+
+		<div class="entrada" >
+		<label>9Vacio</label>
+		</div>
+
+
+
+		<div class="entrada" >
+		<label>10Nivel de estudios</label>
+		<br><select id="Estudios" name="Estudios">
+			<option value="Pri" selected="selected">Primario</option>
+			<option value="Sec">Secundario</option>
+			<option value="Ter">Terciario</option>
+			<option value="Uni">Universitario</option>
+			<option value="Pos">Postgrado</option>
+		</select>			
+		</div>
+
+
+
+
+
+		<div class="entrada" >
+		<label>11Area de Desempeño</label>
+		<br><select id="Fab" name="Fabrica">
+			<option value="admin" selected="selected">Adminitracion</option>
+			<option value="mont">Linea de Montaje</option>
+			<option value="man">Mantenimiento</option>
+			<option value="pan">Pañol</option>
+			<option value="srty">Gerencia</option>
+		</select>			
+		</div>
+
+
+
+
+		<div class="entrada" >
+		<label>12Turno</label>
+		<br><select id="Turnos" name="turn">
+			<option value="man" selected="selected">Mañana</option>
+			<option value="tar">Tarde</option>
+			<option value="noc">Noche</option>
+		</select>				
+		</div>
+
+
+		<div class="entrada" >
+		<label>13Conduce automoviles</label>	
+		<label>si</label>
+		<input type="radio" id="yes" name="drive" value="y" checked="checked">	
+		<label>no</label>
+		<input type="radio" id="Fno" name="drive" value="n" >		
+		</div>
+
+		
+		<div class="nuevaFila" ></div>
+	
+
+		<div class="barraControl"  >
+			
+		<input type="submit" class="boton" value="Enviar" id="Formulando" action="./Respuesta.html"  >
+
+
+		<input type="reset" class="boton"  value="Reset" id="Formulando" action="./Respuesta.html">
+
+		</div>
+
+</form>
+
+<footer>Fin de Formulario</footer>
+
+
+
+
+	<!--  
+
+					<div class="boton"  target="_blank" action="./Respuesta.html"  >Enviar</div>
+			<div class="boton" >Reset</div>
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
