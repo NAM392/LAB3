@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css29TablasRWD</title>
+	<meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
+
+
+<style>
+
+		html , body {
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		*{margin: 0 ; padding: 0 ; border:0 none ;} 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+		table{
+			height: 100%;
+			width: 100%;
+			background-color: #2C4AE8;
+		}
+
+		header {
+			height: 10%;
+			width: 100%;
+			padding-left: 0%;
+			font-size: 22px;
+			color: white;
+			background-color: #3E527C;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			
+
+			}
+
+			/* [campo-dato]= '' le da atributos determinados a cada columna de la tabla */
+
+			[campo-dato = 'id']{
+				width:5%;
+			}
+			[campo-dato = 'Nick']{
+				width: 10%;
+			}
+
+			[campo-dato = 'Mail']{
+				width: 25%;
+			}
+
+			[campo-dato = 'Web']{
+				width: 25%;
+			}
+
+			[campo-dato = 'Twiter']{
+				width: 20%;
+			}
+
+			[campo-dato = 'Skype']{
+				width: 15%;
+			}
+
+			/*
+			@media(max-width: 1200px){
+				[campo-dato = 'Skype']{
+					display: none;
+				}
+			}
+			*/
+
+			tr {
+				display: block;  /* sin esto se agruparian todo en una columna  */
+				overflow: hidden;
+				height: 50px;
+
+			}
+
+			tbody tr:nth-child(odd) {
+				background:rgba(0 , 0 , 0 , .2);
+			}  /*esta funcion es para poder cambiar el tono de una fila a otra */
+
+			th {
+				border-right: 1px solid rgba(0,0,0,.2);
+				height: 100%;
+				width: 100%;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			th , td {
+				float: left;
+			}
+
+
+		tbody {
+			display: block; /*sin esta funcion todo caeria para abajo*/
+			height: 200px;
+			width: 100%;
+			overflow-y: scroll; /*sin esta funcion todo lo scroleable saldria de la tabla*/
+			background-color: lightblue;
+
+		}
+		thead {
+			display: block;
+			width: 100%;
+			background-color: #FF7361;
+			text-align: center;
+		}
+	
+
+		/* asegura pirtabilidad , quita elementos menos redundantes si la pantalla es mas pequeña */
+
+		@media(max-width: 1000px){
+			[campo-dato = 'Skype']{
+				display: none;
+			}
+
+		}
+
+		@media(max-width: 800px){
+			[campo-dato = 'Twiter']{
+				display: none;
+			}
+
+		}
+		@media(max-width: 700px){
+			[campo-dato = 'Web']{
+				display: none;
+			}
+
+		}
+
+		@media(max-width: 450px){
+			[campo-dato = 'Mail']{
+				display: none;
+			}
+
+		}
+
+
+
+</style>
+
+
+</head>
+<body>
+
+<header>Rwd (Responsive Web Design) TABLE : Thead fijo & Tbody scroleable</header>
+
+
+	
+
+
+<table>
+	
+<thead>
+	<tr>
+		<th  campo-dato = 'id' >id</th>
+		<th  campo-dato = 'Nick' >Nick</th>
+		<th  campo-dato = 'Mail' >Mail</th>		
+		<th  campo-dato = 'Web' >Web</th>
+		<th  campo-dato = 'Twiter' >Twiter</th>
+		<th  campo-dato = 'Skype' >Skype</th>				
+	</tr>
+</thead>
+
+<tbody  >
+	<tr>
+		
+		<td campo-dato='id' >1</td> 
+		<td campo-dato='Nick' >Fu</td>
+    	 <td campo-dato='Mail' >Fulano@gmail.com</td>
+    	 <td campo-dato='Web' > <a href="http://fulano.com.ar">http://fulano.com.ar</a> </td>
+	    <td campo-dato='Twiter' >@Fulano</td> 
+	    <td campo-dato='Skype' >Fulano@gmail.com</td> 
+
+	</tr>
+
+
+
+	<tr>
+		
+		<td campo-dato='id' >2</td> <td campo-dato='Nick' >Menga</td> 
+		<td campo-dato='Mail' >Mengano@gmail.com</td>
+		<td campo-dato='Web' > <a href=" http://mengano.com.ar"> http://mengano.com.ar</a></td> 
+		 <td campo-dato= 'Twiter' >@meng</td> <td campo-dato= 'Skype' >Mengano@gmail.com</td> 
+
+	</tr>
+
+
+
+	<tr>
+		
+		<td campo-dato='id' >3</td> <td campo-dato='Nick' >Sultano</td> <td campo-dato='Mail' >Sultano@gmail.com</td>
+		<td campo-dato='Web' > <a href="http://Sultano.com.ar">http://Sultano.com.ar</a> </td> 
+		 <td campo-dato= 'Twiter' >@Sul</td> <td campo-dato= 'Skype' >Sultano@gmail.com</td> 
+	</tr>
+
+
+
+		<tr>
+		
+		<td campo-dato='id' >4</td> <td campo-dato='Nick' >chiche</td> <td campo-dato='Mail' >chiche@gmail.com</td>
+		<td campo-dato='Web' > <a href=" http://chiche.com.ar"> http://chiche.com.ar</a></td>  
+		<td campo-dato= 'Twiter' >@chiche</td> <td campo-dato= 'Skype' >chiche@gmail.com</td
+
+	</tr>
+
+
+
+
+		<tr>
+		
+			<td campo-dato='id' >5</td> <td campo-dato='Nick' >tito</td> <td campo-dato='Mail' >tito@gmail.com</td>
+			<td campo-dato='Web' > <a href="http://tito.com.ar">http://tito.com.ar</a> </td> 
+			 <td campo-dato= 'Twiter' >@tito</td> <td campo-dato= 'Skype' >tito@gmail.com</td> 
+	</tr>
+
+
+
+
+		<tr>
+		<td campo-dato='id' >6</td> <td campo-dato='Nick' >lalala</td> <td campo-dato='Mail' >lalala@gmail.com</td>
+		<td campo-dato='Web' > <a href="http://lalala.com.ar">http://lalala.com.ar</a> </td> 
+		 <td campo-dato= 'Twiter' >@lalala</td> <td campo-dato= 'Skype' >lalala@gmail.com</td> 
+	</tr>
+
+
+
+</tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

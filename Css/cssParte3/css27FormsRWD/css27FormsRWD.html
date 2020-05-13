@@ -19,54 +19,25 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
-			
-			/*height: 50%;*/
-
 			height: 10%;
 			width: 100%;
 			background-color: grey;
-
-
-
-			
-			
-
 		}
 
 		div.Fondo{
 			height: 100%;
 			width: 100%;
 			background-color:#CFCECC ;
-			margin: 0;
+			padding-bottom: 10%;
+			
 			
 		}
 
-/*		div.Fondo{
-				height: 440px;
-				width: 80%;
-				align-content: center;;
-				background-color: #E3B1D2;
-				margin: 10px;
-				margin-left: 10%;
-
-				  centrar las imagenes 
-
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				
-			}
-
-		*/
 
 
-		html , body 
-		{
+		html , body {
 			height: 100%;
 			width: 100%;
-
-
 		}
 
 		.boton{
@@ -79,8 +50,8 @@
 			border-color: black;
 			border-width: 1px;
 
-				align-items: center;
-				justify-content: center;
+			align-items: center;
+			justify-content: center;
 
 
 
@@ -91,15 +62,8 @@
 
 			height: 100%;
 			width:100%;
-			
-			
 			background-color:#CFCECC ;
 			margin: 0;
-
-
-
-		
-
 		}
 
 		.entrada {
@@ -108,34 +72,26 @@
 			width: 19.8%;
 			float: left;
 			background-color:#CFCECC ;
-
-
-
-			border-style: solid;
+ 			border-style: solid;
 			border-color: black;
 			border-width: 1px;
-
-
-				
-				
-				align-items: center;			
-
-			
+			padding: 1%;
+			align-items: center;			
+		
 		}
 
 
 		header {
-				height: 10%;
-				width: 100%;
-				padding-left: 0%;
-				font-size: 22px;
-				color: black;
-				background-color: #3E527C;
-
-
-				align-items: center;
-				justify-content: center;
-				display: flex;
+			height: 10%;
+			width: 100%;
+			padding-left: 0%;
+			font-size: 22px;
+			color: black;
+			background-color: #3E527C;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			
 
 			}
 
@@ -145,51 +101,47 @@
 			}
 
 
+			input{
+				max-width: 70%;
+			}
+
+
+
 
 
 		 footer{
 		 	height: 10%;
 		 	width: 100%;
-		 	background-color: #3E527C;
-				font-size: 22px;
-				color: black;
-
-				align-items: center;
-				justify-content: center;
-				display: flex;
+		 	background-color: blue;
+			font-size: 22px;
+			color: black;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			
 
 		 }
 
 
+		 @media(min-width: 900px){
+		 	.entrada{
+		 		width: 20%;
+		 	}
+		 }
 
+		 @media(min-width: 700px) and (max-width: 900px){
+		 	.entrada{
+		 		width: 25%;
+		 	}
+		 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		 @media(min-width: 500px)and(max-width: 700px){
+		 	.entrada{
+		 		width: 33.3%;
+		 	}
+		 }
 
 	</style>
-
-
-
-
 
 
 </head>
@@ -199,9 +151,7 @@
 	<header>Formulario</header>
 	<div class="Fondo" >
 		
-		
-		
-
+	
 		<form action="./Respuesta.html" target="_blank" method="get" >
 
 			<div class="entrada" >
@@ -245,13 +195,13 @@
 
 		 <div class="entrada" >
 		<label >7Actividades extracurriculares</label>			
-		<br>
+		
 		<label>Musica</label>
 		<input type="checkbox" id="music" name="musica" value="si"/>
-		<br>
+		
 		<label>Pintura Artisitica</label>
 		<input type="checkbox" id="paint" name="pintura" value="si"/>
-		<br>
+		
 		<label>Deportes</label>
 		<input type="checkbox" id="Sport" name="deporte" value="si"/>
 		<label>Teatro</label>
@@ -336,10 +286,10 @@
 		<input type="reset" class="boton"  value="Reset" id="Formulando" action="./Respuesta.html">
 
 		</div>
-
+<footer>Fin de Formulario</footer>
 </form>
 
-<footer>Fin de Formulario</footer>
+
 
 
 
