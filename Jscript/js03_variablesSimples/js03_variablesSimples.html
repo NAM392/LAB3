@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js03_variablesSimples</title>
+<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; ; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1>Carga de variables globales</h1>
+<br>
+
+<script type="text/javascript">
+
+var z	
+var a = 1
+var b = '1'
+var c = 2
+
+var d = prompt("ingrese un valor para cargar en una variable local <span style ='color:blue>d<span>" , "valor por defecto ")
+
+
+document.write("<h2>variable<span style = 'color:blue'> z </span> inicializada desde programa: " + z + "</h2>");
+
+document.write("<h2> tipo de <span style = 'color:blue'> z </span> : " + typeof z + "</h2>");
+
+document.write("<h2>variable<span style = 'color:blue'> a </span> inicializada desde programa: " + a + "</h2>");
+
+document.write("<h2> tipo de <span style = 'color:blue'> a </span> : " + typeof a + "</h2>");
+
+
+document.write("<h2>variable<span style = 'color:blue'> b </span> inicializada desde programa: " + b + "</h2>");
+
+document.write("<h2> tipo de <span style = 'color:blue'> b </span> : " + typeof b + "</h2>");
+
+
+document.write("<h2>variable<span style = 'color:blue'> c </span> inicializada desde programa: " + c + "</h2>");
+
+document.write("<h2> tipo de <span style = 'color:blue'> c </span> : " + typeof c + "</h2>");
+
+
+document.write("<h2> <span style = 'color:blue'> a + b </span> :" + (a+b) + "</h2>" );
+
+document.write("<h2> tipo de <span style = 'color:blue'> a + b </span> : " + typeof (a + b) + "</h2>");
+
+document.write("<h2> <span style = 'color:blue'> a + c </span> : " + (a+c) + "</h2>" );
+
+
+document.write("<h2> tipo de <span style = 'color:blue'> a + c </span> : " + typeof (a+c) + "</h2>");
+
+
+document.write("<h2>la variable <span style = 'color:blue'>d</span> cargada desde teclado : " + d + "</h2>" );
+
+document.write("<h2> tipo de <span style = 'color:blue'> d </span> : " + typeof d + "</h2>");
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
