@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js04_arreglos</title>
+	<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+
+</style>	
+</head>
+<body background="./vinos.jpg" >
+
+
+<script type="text/javascript">
+	
+
+
+var arregloVinos = ["malbec" , "syrah" , "cabernet sauvignon"];
+
+
+
+arregloVinos.push(prompt("El arregloVinos ya tiene tres elementos asignados (malbec , syrah , cabernet sauvignon  ; agregue el cuarto elemento con indice numerico)"));
+
+
+document.write("<h2>Variables Multidimensionales<h2>");
+
+document.write("<h3>Array de indice numerico<h3>");
+
+document.write("<h4> Tipo de arregloVinos : " + typeof arregloVinos + "</h4>");
+
+document.write("<h4> Primer elemento cargado desde programa : " + arregloVinos[0] + "</h4>");
+
+
+document.write("<h4> Segundo elemento cargado desde programa : " + arregloVinos[1] + "</h4>");
+
+document.write("<h4> Tercer elemento cargado desde programa : " + arregloVinos[2] + "</h4>");
+
+document.write("<h4> Cuarto elemento cargado desde teclado : " + arregloVinos[3] + "</h4>");
+
+
+document.write("<h4> Longitud : " + arregloVinos.length() + "</h4>");
+
+/*no funciona esta estructura*/
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

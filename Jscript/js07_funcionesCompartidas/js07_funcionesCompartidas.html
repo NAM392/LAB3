@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js07_funcionesCompartidas</title>
+
+<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+
+		div.Fondo{
+
+			width: 60%;
+			height: 60%;
+			margin-left: 20%;
+			margin-top: 10%;
+			background-color: silver;
+		}
+
+
+		input{
+			height: 20px;
+			width: 60%;
+			margin-left: 20%;
+			margin-top: 2.5%;
+			text-align: right;
+			
+		}
+
+		div.Numeros{
+			height: 150px;
+			width: 60%;
+			margin-left: 20%;
+			background-color: lightblue;
+			padding-top: 30px;
+
+		}
+
+		button.Num{
+				width: 30%;
+				padding-left: 10px;
+				float: left;
+				margin-left: 10px;
+				margin-bottom: 10px;
+				border:solid;
+				border-color: silver;
+
+		}
+
+		div.Comandos{
+			height: 100px;
+			width: 60%;
+			margin-left: 20%;
+			background-color: white;
+			padding-bottom:20px;
+			align-items: center;
+			align-content: center;
+			display: block;
+			padding-left: 55px;
+
+
+
+
+		}
+
+
+		button.Comandos{
+			height: 50%;
+			width: 40%;
+			float: center;
+			border:solid;
+			border-color: grey;
+			background-color: silver;
+			margin-top: 5px;
+
+		}
+
+
+
+</style>
+</head>
+<body background="./olas.jpg" >
+
+
+<div class="Fondo" >
+	
+	<input type="text" id="Display" value=" "  >
+
+		<div class="Numeros" >
+			
+			<button class="Num" id="uno" value="1" >1</button>
+			<button  class="Num" id="dos" value="2" >2</button>
+			<button  class="Num" id="tres" value="3" >3</button>
+			
+			<button class="Num"  id="cuatro" value="4" >4</button>
+			<button  class="Num" id="cinco" value="5" >5</button>
+			<button  class="Num" id="seis" value="6" >6</button>
+			
+			<button  class="Num" id="siete" value="7" >7</button>
+			<button  class="Num" id="ocho" value="8" >8</button>
+			<button  class="Num" id="nueve" value="9" >9</button>
+
+		</div>
+
+		<div class="Comandos" >
+			<button class="Comandos" id="plus" >+</button>
+			<button class="Comandos" id="acum" >Muestra Acumulador</button>
+			<button class="Comandos" id="borra" >Borra display</button>
+			<button class="Comandos" id="delete" >Borra Acumulador</button>
+
+
+		</div>
+
+</div>
+
+
+<script type="text/javascript">
+	
+var acumulador = 0;	
+
+document.getElementById("uno").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+
+document.getElementById("dos").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("tres").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("cuatro").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("cinco").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("seis").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("siete").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+;
+
+	}
+document.getElementById("ocho").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+
+	}
+document.getElementById("nueve").onclick=function(){
+	document.getElementById("Display").value = document.getElementById("Display").value + this.value;
+
+	}
+
+
+
+document.getElementById("borra").onclick=function(){
+	document.getElementById("Display").value = ""
+	}
+
+
+
+document.getElementById("plus").onclick=function(){
+	acumulador = acumulador +  parseInt(document.getElementById("Display").value);
+	 document.getElementById("Display").value = "";
+	}
+
+
+
+document.getElementById("acum").onclick=function(){
+	document.getElementById("Display").value = "";
+	alert("dentro del acumulador hay : "+acumulador);
+
+}
+
+
+document.getElementById("delete").onclick=function(){
+	acumulador = 0;
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

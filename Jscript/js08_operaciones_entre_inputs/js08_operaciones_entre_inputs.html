@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js08_operaciones_entre_inputs</title>
+<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+		div.Fondo{
+
+			width: 60%;
+			height: 70%;
+			margin-left: 20%;
+			margin-top: 5%;
+			background-color: #80DF81;
+			align-content: center;
+			display: block;
+			float: left;
+		}
+
+		input{
+			
+			height: 20px;
+			width: 30%;
+			margin-left: 40%;
+			margin-top: 50px;
+			
+			
+		}
+
+		h3{
+			position: absolute;
+			margin-top: 47px;
+			margin-left: 13%;
+			font-family: courier;
+		}
+
+		button.Num{
+				width: 30%;
+				padding-left: 20px;
+				margin-top: 20px;
+				float: left;
+				margin-left: 15px;
+				background-color: #D6EB92;
+				border:solid;
+				border-color: #90BC00;
+				font-family: courier;
+				color: black;
+
+		}
+		 @media(min-width: 500px) and (max-width: 700px){
+		 	.Fondo{
+		 		width: 30%;
+		 		overflow: auto;
+		 	}
+		 	h3 {
+		 		position: all;
+		 		margin-top: 20px;
+		 		width: 30%;
+		 		display: block;
+		 	}
+
+		 	button.Num {
+		 		float: left;
+		 		width: 25%;
+		 	}
+
+
+		 }
+
+		 h4{
+		 	color: white;
+		 	padding-left: 15%;
+		 }
+
+</style>	
+</head>
+<body background="./misiones.jpg" >
+
+<h4>Introducir un valor en los cuadros de texto y luego pulsar el boton para ejecutar la funcion correspondiente.</h4>
+
+<div class="Fondo" >
+	
+<h3>entrada 1 </h3>
+<input type="text" id="e1" value="0"  >
+
+<h3>entrada 2 </h3>
+<input type="text" id="e2" value="0"  >
+<h3>entrada 3 </h3>
+<input type="text" id="e3" value="0"  >
+<h3>Resultado </h3>
+<input type="text" id="result" value="0"  >
+
+<button class="Num" id="plus" >Suma</button>
+<button class="Num" id="prom" >Promedia</button>
+<button class="Num" id="big" >Mayor</button>
+
+
+
+
+
+
+<script type="text/javascript">
+var arg1;
+var arg2;
+var arg3;
+
+function mayor(a1 , a2 ){
+	if (a1 > a2){
+			return a1;
+		}
+		else {return a2;}
+}
+	
+/*FUNCION DE SUMA*/	
+
+document.getElementById("plus").onclick=function(){
+	
+	document.getElementById("result").value = parseInt(document.getElementById("e1").value) + parseInt(document.getElementById("e2").value) + parseInt(document.getElementById("e3").value)  ; 
+	}
+	
+
+	/*FUNCION DE MAYOR NUMERO */	
+
+document.getElementById("big").onclick=function(){
+		
+		var arg1 = parseInt(document.getElementById("e1").value);
+		var arg2 = parseInt(document.getElementById("e2").value);
+		var arg3 = parseInt(document.getElementById("e3").value);
+
+		var VAL = mayor(arg1,arg2);
+		var MAYOR = mayor(arg3 , VAL);
+		document.getElementById("result").value = MAYOR;
+
+	}
+
+	
+	/*FUNCION DE PROMEDIO */
+		
+
+	document.getElementById("prom").onclick=function(){
+	
+		var arg1 = parseInt(document.getElementById("e1").value);
+		var arg2 = parseInt(document.getElementById("e2").value);
+		var arg3 = parseInt(document.getElementById("e3").value);
+
+		var PROM = (arg1 + arg2 + arg3)/3 ;
+
+		
+		document.getElementById("result").value = SUMA;		
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</div>
+
+</body>
+
+
+
+
+
+</html>

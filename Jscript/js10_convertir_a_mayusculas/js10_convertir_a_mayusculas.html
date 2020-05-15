@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js10_convertir_a_mayusculas</title>
+
+<style>
+		div.Fondo{
+
+			width: 40%;
+			height: 70%;
+			margin-left: 30%;
+			margin-top: 10%;
+			background-color: #7AB396;
+			align-content: center;
+			display: block;
+			float: left;
+			padding-bottom: 30px;
+		}
+
+		input{
+			
+			height: 20px;
+			width: 30%;
+			margin-left: 50%;
+			margin-top: 50px;
+			
+		}
+
+		h3{
+			position: absolute;
+			margin-top: 50px;
+			margin-left: 3%;
+			font-family: sans-serif;
+		}
+
+
+@media(min-width: 500px) and (max-width: 700px){
+		 	.Fondo{
+		 		width: 30%;
+		 		overflow: auto;
+		 	}
+		 	h3 {
+		 		position: all;
+		 		margin-top: 20px;
+		 		width: 30%;
+		 		display: block;
+		 	}
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+</head>
+<body background="./fiesta.jpg" >
+
+<div class="Fondo" >
+	
+
+<h3>Ingrese Patente </h3>
+<input type="text" id="pat" value="0"  >
+
+<h3>Ingrese Apellido </h3>
+<input type="text" id="sur" value="0"  >
+
+
+
+</div>
+
+<script type="text/javascript">
+	
+
+	document.getElementById("pat").onchange=function(){
+		this.value = this.value.toUpperCase();
+	}
+
+
+		document.getElementById("sur").onchange=function(){
+		this.value = this.value.toUpperCase();
+	}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

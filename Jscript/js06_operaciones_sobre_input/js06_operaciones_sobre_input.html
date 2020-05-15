@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js06_operaciones_sobre_input</title>
+		<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+
+		h3{ color: black;  }
+
+</style>	
+</head>
+<body  background="./tesla.jpg" >
+
+
+
+<h3> introducir un valor en el cuadro de texto y luego pulsar el boton para ejecutar el procedimiento correspondiente </h3>
+
+<input type="text" id="x" autofocus="autofocus" >
+<button id="muestravalor" > MUESTRA VALOR 	</button>
+<button id="suma1" > SUMA 1 </button>
+<button id="cuadrado" > ELEVA AL CUADRADO  </button>
+<button id="multiplica" > MULTIPLICA X 2 </button>
+
+
+
+<script type="text/javascript">
+
+
+
+var entrada1 =  document.getElementById("x")
+
+
+document.getElementById("muestravalor").onclick = function  () {
+alert(entrada1.value);
+}
+
+
+document.getElementById("suma1").onclick = function  () {
+var uno = parseInt( entrada1.value );
+alert(uno + 1);
+
+}
+
+document.getElementById("cuadrado").onclick = function () {
+var uno = parseInt( entrada1.value );
+alert(Math.pow(uno , 2));
+
+}
+
+
+document.getElementById("multiplica").onclick = function () {
+var uno = parseInt( entrada1.value );
+alert((uno * 2));
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

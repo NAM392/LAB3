@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		js05_alcance
+	</title>
+		<style>
+		html , body {
+			height: 100%;
+			width: 100%;
+		
+		}
+		*{margin: 0 ; padding: 2px; border:0 none ; } 
+		 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+		*{box-sizing: border-box;}
+	
+	button{
+		float: left;
+		margin-left: 10px;
+		width: 30%;
+		border:solid;
+		border-color: black;
+
+	}
+
+
+
+</style>	
+</head>
+<body background="./blest.jpg" >
+
+<button id="incorrecto" title="inicializa variable global desde adentro con funcion var" >Inicializacion incorrecta</button>
+
+<button id="correcta" title="inicializa variable global desde adentro sin funcion var" >Inicializacion correcta</button>
+<button id="Vglobal" >Muestra variable global</button>
+
+
+<script type="text/javascript">
+
+	var variableboton;
+
+	 document.getElementById("incorrecto").onclick = function variables () {
+	 	var variableboton = prompt("ingrese el valor de una variable global");
+	 	alert("el valor de la variable ingresada es : " + variableboton);
+	 	alert("el tipo de la variable ingresada es : " + typeof variableboton );
+	 
+	 }
+
+	document.getElementById("Vglobal").onclick = function globales(){
+
+	 if(variableboton == null){
+	 	alert("la variable global no a sido asignada");
+	 }
+	 else {
+	 	alert("la variableGlobal tiene un valor de : " + variableboton );
+	 	alert("el tipo de la variableGlobal ingresada es : " + typeof variableboton );
+
+	 }
+	}
+
+
+
+
+
+
+	document.getElementById("correcta").onclick = function globales(){
+
+		variableboton = prompt("ingrese el valor de una variable global");
+		alert("el valor de la variable ingresada es : " + variableboton);
+		alert("el tipo de la variable ingresada es : " + typeof variableboton );
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
