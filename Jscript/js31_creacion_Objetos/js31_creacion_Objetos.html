@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js31_creacion_Objetos</title>
+
+<style>
+	
+	div.fondo{
+				height: 300px;
+				width: 80%;
+				align-content: center;
+				background-color: #7F94C2;
+				margin: 10px;
+				margin-left: 10%;
+				margin-top: 10%;
+				overflow: auto;
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+			}
+
+		button{
+			background-color: lightblue;
+		}
+
+		.objetodinamico{
+
+				height: 80px;
+				width: 45%;
+				border-style: solid;
+				border-color: black;
+				background-color: lightblue;
+				font-weight: 7px;
+
+		}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+<button id="cr" type="submit" >Crear</button>
+<button id="li" type="submit" >Llimpiar</button>
+<button id="inf" type="submit" >Info</button>
+
+
+<div class="fondo" id="contenedor" >
+	
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+
+var ObjDIV = document.createElement("div");
+
+var btInfo = document.getElementById("inf");
+var btCrear = document.getElementById("cr");
+var btLimp = document.getElementById("li");
+var Cont = document.getElementById("contenedor");
+
+var arregloDIV = [ObjDIV];
+
+
+ObjDIV.className = "objetodinamico";
+
+
+
+
+
+
+btCrear.onclick = function(){
+	Cont.appendChild(ObjDIV);
+	var textoHTML = "<h2>Elemento Creado";
+	textoHTML = textoHTML + Cont.childNodes.length ;
+	textoHTML = textoHTML + "</h2>"
+	ObjDIV.innerHTML = textoHTML;
+
+}
+
+
+btInfo.onclick = function(){
+	alert("boton de childnodes" + Cont.childNodes.length );
+	alert()
+
+}
+
+btLimp.onclick = function(){
+	while(Cont.childNodes.length>0){
+		Cont.removeChild(Cont.childNodes[0]);
+	}
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

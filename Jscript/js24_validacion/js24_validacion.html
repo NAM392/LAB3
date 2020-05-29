@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js24_validacion</title>
+	<style>
+			div.Fondo{
+				height: 200px;
+				width: 80%;
+				align-content: center;
+				background-color: #B6BE32;
+				margin: 10px;
+				margin-left: 10%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+			}
+
+		    div.botonera{
+		    	height: 50px;
+				width: 60%;
+				align-content:left;
+				background-color: #B6BE32;
+				
+				margin-left: 30%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+		    }
+
+		    input{
+		    	margin-left: 10px;
+		    	width: 200px;
+		    	display: left;
+
+		    }
+
+		    h3{
+		    	margin-left: 10px;
+
+		    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+</head>
+<body background="" >
+<h2>Ejer validacion de un INPUT</h2>
+<div class="Fondo" id="Content" >
+	
+<form id="miform" >
+	<h3>Ingrese el dia del mes </h3>
+	<input type="number" id="day" step="1"  min="1" max="31"  >
+	<h3>Ingrese el mes</h3>
+	<input type="number" id="mon"  step="1" min="1" max="12"  >
+</form>
+
+	<div class="botonera" >
+		
+			<input type="submit" id="send" value="Enviar" >
+
+			<input type="reset" value="Reset" id="reset" >
+	</div>
+
+</div>
+
+
+
+
+<script>
+	
+var objDay = document.getElementById("day");
+var objMon = document.getElementById("mon");
+var objDiv = document.getElementById("Content");
+var objForm = document.getElementById("miform");
+
+//validacion dia
+objDay.onkeyup = function(){
+	if(!objDay.checkValidity()){
+		alert("el valor introducido es incorrecto");
+	}
+}
+
+//validacion mes
+objMon.onkeyup = function(){
+	if(!objMon.checkValidity()){
+		alert("el valor introducido es incorrecto");
+	}
+}
+
+
+
+	document.getElementById("send").onclick=function(){
+		var confirma = confirm("Esta seguro de enviar");
+		if(confirma){
+			document.getElementById("miform").method="get";
+			document.getElementById("miform").action="./respuesta.html"
+			document.getElementById("miform").submit();
+		}
+		else{
+			alert("No se envio formulario");
+		}
+	}
+
+
+		//boton reset
+	document.getElementById("reset").onclick=function(){
+		document.getElementById("miform").reset();
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

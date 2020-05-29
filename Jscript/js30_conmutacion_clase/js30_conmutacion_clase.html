@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js30_conmutacion_clase</title>
+
+
+	<style>
+		
+
+		ul.Tipo0 {
+					width: 80px;
+					padding-top: 60px;
+					padding-bottom: 60px;
+					padding-left: 60px;
+					border-color: black;
+					border-style: solid;
+
+
+		}
+		ul.Tipo1 {
+					width: 80px;
+					padding-top: 60px;
+					padding-bottom: 60px;
+					padding-left: 60px;
+					border-color: red;
+					border-style: solid;
+					background-color: lightblue;
+					color: red;
+					
+
+
+		}
+
+		ul.Tipo2 {
+					width: 80px;
+					padding-top: 60px;
+					padding-bottom: 60px;
+					padding-left: 60px;
+					border-color: #5EA977;
+					border-style: solid;
+					background-color: #92EBB0;
+					color: #2F7E1B;
+					
+
+
+		}
+
+				ul.Tipo3 {
+					width: 80px;
+					padding-top: 60px;
+					padding-bottom: 60px;
+					padding-left: 60px;
+					border-color: red;
+					border-style: solid;
+					background-color: yellow;
+					color: green;
+					
+
+
+		}
+
+				ul.Tipo4 {
+					width: 80px;
+					padding-top: 60px;
+					padding-bottom: 60px;
+					padding-left: 60px;
+					border-color: blue;
+					border-style: solid;
+					background-color: brown;
+					color: white;
+					
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<h1>Ejemplos de cambio de estilo dinamicamente</h1>
+<ul class="Tipo0" id="parrafo" >
+	<li>texto</li>
+	<li>texto</li>
+	<li>texto</li>
+	<li>texto</li>
+
+</ul>
+
+<button id="L1" type="submit" >Tipo1</button>
+<button id="M2" type="submit" >Tipo2</button>
+<button id="N3" type="submit" >Tipo3</button>
+<button id="O4" type="submit" >Tipo4</button>
+
+
+
+<script type="text/javascript">
+	
+
+
+
+var P = document.getElementById("parrafo");
+
+var B1 = document.getElementById("L1");
+var B2 = document.getElementById("M2");
+var B3= document.getElementById("N3");
+var B4 = document.getElementById("O4");
+
+
+
+B1.onclick = function(){
+	P.className="Tipo1";
+}
+
+B2.onclick = function(){
+	P.className="Tipo2";
+}
+
+B3.onclick = function(){
+	P.className="Tipo3";
+}
+
+B4.onclick = function(){
+	P.className="Tipo4";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

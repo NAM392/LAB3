@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js29_location</title>
+	<style>
+			div.Todo{
+				background-color: lightblue;
+				padding-bottom: 9%;
+				
+			}
+
+			div.Fondo{
+				height: 380px;
+				width: 60%;
+				align-content: center;;
+				background-image: url("./nh.jpg");;
+				margin: 10px;
+				margin-left: 20%;
+
+				/*  centrar las imagenes */
+				display: center;
+				justify-content: center;
+				align-items: center;
+				
+			}
+			button{
+				margin-top:30%;
+				margin-left: 20%;
+			}
+
+	</style>
+</head>
+<body>
+<div class="Todo" >
+<div class="Fondo" >
+
+<button id="L1" type="submit" >Yahoo</button>
+<button id="M2" type="submit" >YouTube</button>
+<button id="N3" type="submit" >Google</button>
+
+</div>
+</div>
+<script type="text/javascript">
+	
+var B1 = document.getElementById("L1");
+var B2 = document.getElementById("M2");
+var B3 = document.getElementById("N3");
+
+
+
+B1.onclick = function(){
+	location.href="http://www.yahoo.com.ar";
+}
+
+
+B2.onclick = function(){
+	location.href="http://www.youtube.com.ar";
+}
+
+
+B3.onclick = function(){
+	location.href="http://www.google.com.ar";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

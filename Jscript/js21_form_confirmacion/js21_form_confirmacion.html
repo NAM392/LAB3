@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js21_form_confirmacion</title>
+
+
+<style>
+			div.Fondo{
+				height: 380px;
+				width: 80%;
+				align-content: center;
+				background-color: #7F94C2;
+				margin: 10px;
+				margin-left: 10%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+			}
+
+		    div.botonera{
+		    	height: 50px;
+				width: 40%;
+				align-content: center;
+				background-color: #7F94C2;
+				margin-top: 14%;
+				margin-left: 40%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+		    }
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class="Fondo" >
+	<form id="miform" >
+
+	<h2>Confirmacion y envio de reset</h2>
+
+	<h3>Nombre</h3>
+	<input type="text" id="nam" value=" "  >
+	<br>
+	<h3>Apellido</h3>
+	<input type="text" id="sur" value=" "  >
+	</form>
+	<div class="botonera" >
+
+			<input type="submit" id="send" value="Enviar" >
+
+			<input type="reset" value="Reset" id="reset" >
+
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+	//boton enviar
+	document.getElementById("send").onclick=function(){
+		var confirma = confirm("Esta seguro de enviar");
+		if(confirma){
+			document.getElementById("miform").method="get";
+			document.getElementById("miform").action="./respuesta.html"
+			document.getElementById("miform").submit();
+		}
+		else{
+			alert("No se envio formulario");
+		}
+	}
+
+	//boton reset
+	document.getElementById("reset").onclick=function(){
+		document.getElementById("miform").reset();
+	}	
+
+</script>
+
+
+</body>
+</html>

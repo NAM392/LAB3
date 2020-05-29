@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js12_variables_objeto_dato</title>
+
+<style>
+			div.Fondo{
+				height: 380px;
+				width: 80%;
+				align-content: center;;
+				background-color: #3AE899;
+				margin: 10px;
+				margin-left: 10%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+			}
+
+			div.press{
+				height: 380px;
+				width: 80%;
+				align-content: center;;
+				background-color: #3AE853;
+				margin: 10px;
+				margin-left: 10%;
+				overflow: auto;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+
+
+			}
+
+			div.Control{
+				height: 80px;
+				width: 80%;
+				align-content: center;;
+				background-color: #E8CE3A;
+				margin: 10px;
+				margin-left: 10%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+
+
+			}
+
+			table {
+				border-collapse: collapse;
+				border:solid;
+			}
+
+			p{
+				font-weight: bold;
+				font-size: 20px;
+			}
+
+</style>
+
+
+</head>
+<body>
+
+<h2>Consignas del ejercicio</h2>
+<br>
+<p>
+	Declarar y hacer uso de Objetos de dato ( datos del tipo objeto)
+	Carga de dos personas a un array por programa
+	Dejar de usar la funcion prompt() para el ingreso de datos.Armar un contenedor para el ingreso de datos desde consola(solo inputs sin formulario)
+	Dejar de usar Document.Write () y escribir contenido dentro de un elemento html(puede ser un div)
+	Dos botones para llamara dos funciones.Una para cargar un nuevo objeto de dato por teclado y otra para mostrar en formato de tabla el array completo de elementos con su longitud.
+	Un tercer procedimiendo para ocultar el elemento de precentación (usando el parametro de estilo display:none)
+
+
+</p>
+
+<div class="Fondo" >
+	
+<h2>Adicionar Persona</h2>
+<br>
+<h3>Nombre</h3>
+<input type="text" id="nom" value=" "  >
+<h3>Apellido </h3>
+<input type="text" id="sur" value=" "  >
+<h3>Fecha de Nacimiento </h3>
+<input type="text" id="birth" value=" "  >
+<br><br><br>
+<button  id="crea" >Crea persona</button>
+
+
+
+</div>
+
+<div class="Control" >
+	<h2>Control</h2>
+	<button  id="list" >Lista personas</button>
+	<button  id="hide" >Ocultar presentacion</button>
+</div>
+
+
+<div id="presentacion" class="press">
+
+
+<script type="text/javascript">
+	
+var obetoPersona={};
+var objetoPersona = {nombre:"Pablo" , apellido:"Galdi" , fechaNac:"01/01/99"};
+
+var arregloPersona=[objetoPersona];
+
+
+// boton crear persona
+document.getElementById("crea").onclick=function(){
+	arregloPersona.push({nombre:document.getElementById("nom").value , apellido:document.getElementById("sur").value , fechaNac:document.getElementById("birth").value });
+		
+		var texto = "<h1>Presentacion</h1>"
+
+		arregloPersona.forEach(function(item,indice){
+			
+			texto = texto + "<table> <tr>";
+			texto = texto + "<td>" + item.nombre + "</td>" ;
+			texto = texto + "<td>" + item.apellido + "</td>";
+			texto = texto + "<td>" + item.fechaNac + "</td>";
+			texto = texto + "</tr></table>";
+			
+			
+			document.getElementById("presentacion").innerHTML = texto;
+
+		});
+
+		texto = texto + "<h4>Longitud del arreglo de objetos : " + arregloPersona.length;
+		document.getElementById("presentacion").innerHTML = texto;
+};
+
+//boton muestra presentacion
+document.getElementById("list").onclick=function(){
+		document.getElementById("presentacion").style.display = "block";
+
+}
+
+//ocultar presentacion
+document.getElementById("hide").onclick=function(){
+	document.getElementById("presentacion").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
