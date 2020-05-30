@@ -9,7 +9,7 @@
 				height: 300px;
 				width: 80%;
 				align-content: center;
-				background-color: #7F94C2;
+				background-color: #F5FFB7;
 				margin: 10px;
 				margin-left: 10%;
 				margin-top: 10%;
@@ -34,16 +34,8 @@
 				background-color: lightblue;
 				font-weight: 7px;
 
+
 		}
-
-
-
-
-
-
-
-
-
 
 </style>
 
@@ -54,56 +46,49 @@
 <button id="inf" type="submit" >Info</button>
 
 
-<div class="fondo" id="contenedor" >
-	
-
-
-
-
-</div>
-
-
-
-
-
+<div class="fondo" id="contenedor" ></div>
 
 
 <script type="text/javascript">
 	
 
-var ObjDIV = document.createElement("div");
 
+//botones
 var btInfo = document.getElementById("inf");
 var btCrear = document.getElementById("cr");
 var btLimp = document.getElementById("li");
+//div contenedor
 var Cont = document.getElementById("contenedor");
 
-var arregloDIV = [ObjDIV];
 
-
-ObjDIV.className = "objetodinamico";
-
-
-
-
-
-
+//boton crear
 btCrear.onclick = function(){
-	Cont.appendChild(ObjDIV);
-	var textoHTML = "<h2>Elemento Creado";
-	textoHTML = textoHTML + Cont.childNodes.length ;
-	textoHTML = textoHTML + "</h2>"
+	var ObjDIV = document.createElement("div");
+	ObjDIV.className = "objetodinamico";
+	var textoHTML = "<h2>Elemento Creado ";
+	textoHTML += Cont.childNodes.length ;
+	textoHTML += "</h2>"
 	ObjDIV.innerHTML = textoHTML;
-
+	Cont.appendChild(ObjDIV);
 }
 
-
+//boton info
 btInfo.onclick = function(){
-	alert("boton de childnodes" + Cont.childNodes.length );
-	alert()
+		if(Cont.childNodes.length > 0)
+		{
+			alert("boton de childnodes : " + Cont.childNodes.length );
+			for(var i = 0 ; i < Cont.childNodes.length ; i++){
+
+				alert("indice : " + i + "  innerHTML : " + Cont.childNodes[i] );
+
+			}
+
+		}
+		else{alert("boton de childnodes : " + Cont.childNodes.length );}
 
 }
 
+//boton limpiar
 btLimp.onclick = function(){
 	while(Cont.childNodes.length>0){
 		Cont.removeChild(Cont.childNodes[0]);
@@ -111,29 +96,8 @@ btLimp.onclick = function(){
 
 }
 
-
-
-
-
-
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
+
 </html>
