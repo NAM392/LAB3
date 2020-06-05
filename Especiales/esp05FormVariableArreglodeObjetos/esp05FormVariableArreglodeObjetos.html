@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>esp05FormVariableArreglodeObjetos</title>
+<style >
+
+			html{overflow: hidden;}
+			div.Fondo{
+				height: 500px;
+				width: 100%;
+				align-content: center;
+				background-color: #D9DBDA;
+				margin: 10px;
+				margin-left: 0%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+
+				
+			}
+
+		    div.botonera{
+		    	height: 50px;
+				width: 60%;
+				align-content:left;
+				background-color: #B6BE32;
+				
+				margin-left: 30%;
+
+				/*  centrar las imagenes */
+				display: left;
+				justify-content: center;
+				align-items: center;
+				
+		    }
+
+			input.p{
+				width: 30%;
+				height: 40px;
+			    display: left;
+			    margin-left: 10px;
+			    margin-top: 15px;
+			    }
+		 	
+			select{
+				width: 30%;
+				height: 40px;
+			    display: left;
+			    margin-left: 25%;
+			    padding-top: 0;
+			    margin-top: 0;
+			    
+			}    
+
+
+		    h3{
+		    	margin-left: 10px;
+
+		    }
+		    p.in{margin-left: 10px;}
+
+		    p{margin-left: 60%; margin-top: 0;margin-bottom: 0;
+		    	padding-top: 10px}
+
+			header{
+				width: 75%;
+				height: 60px;
+				background-color: #879A93;
+				padding-left: 25%;
+				
+			}
+
+
+
+			footer{
+				width: 75%;
+				height: 30px;
+				background-color: #9CAAA5;
+				padding-left: 40%;
+				margin-top: 8.7%;
+			}
+
+			button{
+				margin-left: 300px;
+				height: 40px;
+				width: 30%;
+			}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="Fondo" >
+<header><h2>Formulario para ALTA - Maestro de Articulos</h2></header>	
+
+<form id="formulario" >
+<p>Familia de Articulo</p>
+<p class="in" >codArt : </p>
+<input type="text" class="p">
+
+<select id="formArticulos" required="required"></select>
+<p class="in">Descripcion : </p>
+<input type="text" class="p">
+<p class="in" >Saldo stock : </p>
+<input type="text" class="p">
+<button id="send" >Enviar</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<footer><h2>Pie del Formulario</h2></footer>
+
+</div>
+
+
+
+
+
+</body>
+
+<script  src="../jquery_ul.js" ></script>
+<script src="./arregloArticulos.js"></script>
+<script type="text/javascript">
+
+
+var objJSON = JSON.parse(textoJSON_ART);
+var objSelect = document.getElementById("formArticulos");
+var objEnviar = document.getElementById("send");
+var objForm = document.getElementById("formulario");
+
+function creaOpciones(){
+	objJSON.Frutos.forEach(function(argValor , argIndice){
+
+		var objOpcion = document.createElement("option");
+		objOpcion.setAttribute("value" , argValor.descripcion);
+		objOpcion.innerHTML = argValor.descripcion;
+		objSelect.appendChild(objOpcion);
+	})
+}	
+
+
+
+
+$(document).ready(function(){
+	
+	creaOpciones();
+});
+
+
+
+	objEnviar.onclick=function(){
+		objForm.action = "./enviado.html";
+		objForm.submit();
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

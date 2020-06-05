@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>esp10TablaVariableArreglodeObjetos</title>
+	<meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
+
+
+<style>
+
+			html , body {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			*{margin: 0 ; padding: 0 ; border:0 none ;} 
+			 /*se asegura de dejar todo en 0 para que quede bien relleno*/
+			*{box-sizing: border-box;}
+
+			table{
+				height: 100%;
+				width: 100%;
+				background-color: white;
+			}
+
+			header {
+				height: 10%;
+				width: 100%;
+				padding-left: 0%;
+				font-size: 22px;
+				color: black;
+				background-color: #DCDBDB;
+				align-items: center;
+				justify-content: center;
+				display: flex;
+
+				
+
+			}
+
+			td.arte{	width:15%;float: left; }
+
+
+			/* [campo-dato]= '' le da atributos determinados a cada columna de la tabla */
+
+			[campo-dato = 'art_CodArt']{
+				width:15%;
+				padding-left: 20px;
+			}
+			[campo-dato = 'art_Family']{
+				width: 15%;
+				padding-left: 20px;
+			}
+
+			[campo-dato = 'art_Med']{
+				width: 30%;
+				padding-left: 20px;
+			}
+
+			[campo-dato = 'Web']{
+				width: 15%;
+				padding-left: 20px;
+			}
+
+			[campo-dato = 'Twiter']{
+				width: 15%;
+				padding-left: 20px;
+			}
+
+
+
+			/*
+			@media(max-width: 1200px){
+				[campo-dato = 'Skype']{
+					display: none;
+				}
+			}
+			*/
+
+			tr {
+				display: block;  /* sin esto se agruparian todo en una columna  */
+				overflow: hidden;
+				height: 50px;
+
+			}
+
+			tbody tr:nth-child(odd) {
+				background:rgba(0 , 0 , 0 , .2);
+			}  /*esta funcion es para poder cambiar el tono de una fila a otra */
+
+			th {
+				border-right: 1px solid rgba(0,0,0,.2);
+				height: 100%;
+				width: 100%;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			th , td {
+					float: left;
+				}
+
+
+			tbody {
+				display: block; /*sin esta funcion todo caeria para abajo*/
+				height: 300px;
+				width: 100%;
+				overflow-y: scroll; /*sin esta funcion todo lo scroleable saldria de la tabla*/
+				background-color: lightgrey;
+
+			}
+			thead {
+				display: block;
+				width: 100%;
+				background-color: #FF7361;
+				text-align: center;
+			}
+
+			button{
+				margin-left: 20%;
+				width: 100px;
+				height: 40px;
+			}
+		
+
+			/* asegura pirtabilidad , quita elementos menos redundantes si la pantalla es mas pequeña */
+
+			@media(max-width: 1000px){
+				[campo-dato = 'Skype']{
+					display: none;
+				}
+
+			}
+
+			@media(max-width: 800px){
+				[campo-dato = 'Twiter']{
+					display: none;
+				}
+
+			}
+			@media(max-width: 700px){
+				[campo-dato = 'Web']{
+					display: none;
+				}
+
+			}
+
+			@media(max-width: 450px){
+				[campo-dato = 'Mail']{
+					display: none;
+				}
+
+			}
+
+
+
+</style>
+
+
+</head>
+<body>
+
+<header>Articulos <button id="boton" >Carga Datos</button> </header>
+
+
+	
+
+
+<table>
+	
+<thead>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >codArt</th>
+		<th  campo-dato = 'art_Family' > Familia</th>
+		<th  campo-dato = 'art_Med' > Descripcion</th>		
+		<th  campo-dato = 'Web' > Fecha Alta</th>
+		<th  campo-dato = 'Twiter' >Saldo Stock</th>
+					
+	</tr>
+</thead>
+
+<tbody id="tablas" >
+
+
+</tbody>
+
+
+<thead>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >$codArt</th>
+		<th  campo-dato = 'art_Family' >$ Familia</th>
+		<th  campo-dato = 'art_Med' >$ Descripcion</th>		
+		<th  campo-dato = 'Web' >$ Fecha Alta</th>
+		<th  campo-dato = 'Twiter' >$Saldo Stock</th>
+					
+	</tr>
+</thead>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script  src="../jquery_ul.js" ></script>
+<script src="./arregloArticulos.js"></script>
+<script type="text/javascript">
+	
+
+var objJSON = JSON.parse(textoJSON_ART);
+var objBoton = document.getElementById("boton");
+
+
+
+
+function creaOpciones(){
+
+	objJSON.Frutos.forEach(function(argValor , argIndice){
+	var objTR = document.createElement("tr");
+	var objTD = document.createElement("td");	
+	var objTBD = document.getElementById("tablas");
+		
+		
+		objTD.setAttribute("campo-dato" , "art_CodArt");
+		objTD.innerHTML += argValor.CodArt;
+		objTR.appendChild(objTD);
+		
+
+		objTD.setAttribute("campo-dato" , "art_Family");
+		objTD.innerHTML += argValor.familia;
+		objTR.appendChild(objTD);
+	
+	
+		objTD.setAttribute("campo-dato" , "art_Med");
+		objTD.innerHTML += argValor.UM;
+		objTR.appendChild(objTD);
+		
+		
+
+
+
+
+
+
+
+		objTBD.appendChild(objTR);
+
+	});
+
+
+
+
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//Boton Carga Datos
+	objBoton.onclick=function(){
+		creaOpciones();
+		
+
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>prob</title>
+
+<script src="./jquery.js"></script>	
+<script type="text/javascript" >
+
+
+var objSelect = document.getElementById("chiche");
+	
+
+var textoUnidadesdeMedida = '{"UnidadesdeMedida":['+
+'{"codUM":"KG","descripcionUM":"Kilogramos"},'+
+'{"codUM":"BO05LT","descripcionUM":"Bolsa 0.5 litros"},'+
+'{"codUM":"LAT","descripcionUM":"Latas"}'+
+']}';
+
+objJSON = JSON.parse(textoUnidadesdeMedida);
+
+
+function creaOpciones(){
+	objJSON.UnidadesdeMedida.forEach(function(argValor , argIndice){
+			
+			var objOpcion = document.createElement("option");
+			objOpcion.setAttribute("class" , "elementoOptionSelect");
+			objOpcion.setAttribute("value" , argValor.descripcionUM);
+			objOpcion.innerHTML = argValor.descripcionUM;
+			document.getElementById("lala").appendChild(objOpcion);
+			
+	});
+}
+
+
+$(document).ready(function(){
+creaOpciones();
+
+});
+
+
+
+</script>
+
+	<style >
+		elementoOptionSelect.{background-color: green;}
+
+		select{width: 200px;height: 90px;}
+		
+	</style>
+</head>
+<body>
+
+
+
+<select  id="lala" required="required" >
+
+
+</select>
+
+
+</body>
+
+</html>
