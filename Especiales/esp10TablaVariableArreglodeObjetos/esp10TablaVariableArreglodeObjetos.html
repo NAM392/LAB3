@@ -45,38 +45,36 @@
 			/* [campo-dato]= '' le da atributos determinados a cada columna de la tabla */
 
 			[campo-dato = 'art_CodArt']{
-				width:15%;
+				width:10%;
 				padding-left: 20px;
 			}
 			[campo-dato = 'art_Family']{
-				width: 15%;
+				width: 10%;
 				padding-left: 20px;
 			}
-
 			[campo-dato = 'art_Med']{
-				width: 30%;
+				width: 8%;
 				padding-left: 20px;
 			}
 
-			[campo-dato = 'Web']{
+			[campo-dato = 'art_Des']{
+				width: 20%;
+				padding-left: 20px;
+			}
+
+			[campo-dato = 'art_fecha']{
 				width: 15%;
 				padding-left: 20px;
 			}
 
-			[campo-dato = 'Twiter']{
+			[campo-dato = 'art_saldo']{
 				width: 15%;
 				padding-left: 20px;
 			}
 
 
 
-			/*
-			@media(max-width: 1200px){
-				[campo-dato = 'Skype']{
-					display: none;
-				}
-			}
-			*/
+
 
 			tr {
 				display: block;  /* sin esto se agruparian todo en una columna  */
@@ -128,31 +126,26 @@
 			/* asegura pirtabilidad , quita elementos menos redundantes si la pantalla es mas pequeña */
 
 			@media(max-width: 1000px){
-				[campo-dato = 'Skype']{
+				[campo-dato = 'art_saldo']{
 					display: none;
 				}
 
 			}
 
 			@media(max-width: 800px){
-				[campo-dato = 'Twiter']{
+				[campo-dato = 'art_fecha']{
 					display: none;
 				}
 
 			}
 			@media(max-width: 700px){
-				[campo-dato = 'Web']{
+				[campo-dato = 'art_CodArt']{
 					display: none;
 				}
 
 			}
 
-			@media(max-width: 450px){
-				[campo-dato = 'Mail']{
-					display: none;
-				}
 
-			}
 
 
 
@@ -162,7 +155,7 @@
 </head>
 <body>
 
-<header>Articulos <button id="boton" >Carga Datos</button> </header>
+<header>Articulos <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button>  </header>
 
 
 	
@@ -175,9 +168,10 @@
 
 		<th  campo-dato = 'art_CodArt' >codArt</th>
 		<th  campo-dato = 'art_Family' > Familia</th>
-		<th  campo-dato = 'art_Med' > Descripcion</th>		
-		<th  campo-dato = 'Web' > Fecha Alta</th>
-		<th  campo-dato = 'Twiter' >Saldo Stock</th>
+		<th  campo-dato = 'art_Med' > UM</th>		
+		<th  campo-dato = 'art_Des' > Descripcion</th>	
+		<th  campo-dato = 'art_fecha' > Fecha Alta</th>
+		<th  campo-dato = 'art_saldo' >Saldo Stock</th>
 					
 	</tr>
 </thead>
@@ -193,9 +187,10 @@
 
 		<th  campo-dato = 'art_CodArt' >$codArt</th>
 		<th  campo-dato = 'art_Family' >$ Familia</th>
-		<th  campo-dato = 'art_Med' >$ Descripcion</th>		
-		<th  campo-dato = 'Web' >$ Fecha Alta</th>
-		<th  campo-dato = 'Twiter' >$Saldo Stock</th>
+		<th  campo-dato = 'art_Med' >$UM</th>	
+		<th  campo-dato = 'art_Des' > Descripcion</th>		
+		<th  campo-dato = 'art_fecha' >$ Fecha Alta</th>
+		<th  campo-dato = 'art_saldo' >$Saldo Stock</th>
 					
 	</tr>
 </thead>
@@ -207,23 +202,17 @@
 
 
 
-
-
-
-
-
-
-
 </body>
 
 <script  src="../jquery_ul.js" ></script>
-<script src="./arregloArticulos.js"></script>
+<script src="./arreglosArticulos.js"></script>
 <script type="text/javascript">
 	
 
 var objJSON = JSON.parse(textoJSON_ART);
 var objBoton = document.getElementById("boton");
-
+var btLimp = document.getElementById("limpiar");
+var objTBD = document.getElementById("tablas");
 
 
 
@@ -231,30 +220,41 @@ function creaOpciones(){
 
 	objJSON.Frutos.forEach(function(argValor , argIndice){
 	var objTR = document.createElement("tr");
-	var objTD = document.createElement("td");	
-	var objTBD = document.getElementById("tablas");
+	
 		
-		
+		var objTD = document.createElement("td");	
 		objTD.setAttribute("campo-dato" , "art_CodArt");
-		objTD.innerHTML += argValor.CodArt;
+		objTD.innerHTML = argValor.CodArt;
 		objTR.appendChild(objTD);
 		
-
+		var objTD = document.createElement("td");
 		objTD.setAttribute("campo-dato" , "art_Family");
-		objTD.innerHTML += argValor.familia;
+		objTD.innerHTML = argValor.familia;
 		objTR.appendChild(objTD);
 	
-	
+		var objTD = document.createElement("td");
 		objTD.setAttribute("campo-dato" , "art_Med");
-		objTD.innerHTML += argValor.UM;
+		objTD.innerHTML = argValor.UM;
 		objTR.appendChild(objTD);
 		
 		
+		var objTD = document.createElement("td");
+		objTD.setAttribute("campo-dato" , "art_Des");
+		objTD.innerHTML = argValor.descripcion;
+		objTR.appendChild(objTD);
+		
 
+		var objTD = document.createElement("td");
+		objTD.setAttribute("campo-dato" , "art_fecha");
+		objTD.innerHTML = argValor.fecha;
+		objTR.appendChild(objTD);
+		
 
-
-
-
+		var objTD = document.createElement("td");
+		objTD.setAttribute("campo-dato" , "art_saldo");
+		objTD.innerHTML = argValor.saldo;
+		objTR.appendChild(objTD);
+		
 
 
 		objTBD.appendChild(objTR);
@@ -262,62 +262,26 @@ function creaOpciones(){
 	});
 
 
-
-
 }	
 
 
 
+//boton limpiar
+$("#limpiar").click(function(){
+	$("#tablas").empty();
+
+});
 
 
 
 
+//carga elementos
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//Boton Carga Datos
-	objBoton.onclick=function(){
+$("#boton").click(function(){
 		creaOpciones();
-		
 
-	}	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
