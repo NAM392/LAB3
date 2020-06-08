@@ -1,9 +1,265 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>esp15VentanaModal</title>
+	<title></title>
+	<style type="text/css">
+		
+		div.fondo{
+
+				height: 450px;
+			    width: 100%;
+			    background-color: lightblue;
+			    opacity: 1;
+			    pointer-events: auto;
+			}
+
+
+
+		
+
+		div.ventana{
+				
+			    height: 200px;
+			    width: 403px;
+			    background-color: grey;
+			    margin-left: 430px;
+			    margin-top: -20%;
+			    display: block;
+
+			    opacity: 1;
+			    pointer-events: auto;
+				visibility: visible;
+			    
+
+		}
+
+
+		div.modal1{
+				background-color: lightgrey;
+			    height: 142px;
+			    width: 403px;
+			    display: flex;
+			    margin-top: 29px;
+		}
+
+
+		div.prim{
+
+			        height: 142px;
+				    width: 201px;
+				    background-color: lightgrey;
+		}
+
+
+		div.sec{
+				height: 142px;
+			    width: 201px;
+			    background-color: lightgrey;
+			    
+
+		}
+
+
+		input.ini{
+			height: 10px;
+		    margin: 0px;
+		    margin-left: 15px;
+		    background-color: white;
+		}
+
+
+
+		p{
+			    margin: 0px;
+   			    margin-left: 15px;
+		}
+
+
+		select{
+			    width: 145px;
+   				 margin-left: 15px;
+		}
+
+		p.fech{
+			padding-top: 20px;
+
+		}
+
+		select.fecha{
+			margin-top: 0px;
+		}
+
+
+		button{
+			    width: 139px;
+			    margin-left: 20px;
+			    margin-top: 10px;
+			    height: 23px;
+		}
+
+
+		input.but{
+				height: 32px;
+    			width: 14%;
+				background-color: grey;
+				color: white;
+		}
+
+		input.cl{
+			background-color: grey;
+		    color: red;
+		    margin: 0;
+		    padding: 0;
+		    height: 20px;
+		}
+
+
+
+		div.ventana_OFF{
+			visibility: hidden;	
+
+
+
+		}
+
+		div.fondo_OFF{
+				height: 450px;
+			    width: 100%;
+			    background-color: lightblue;
+			    opacity: 0.3;
+			    pointer-events: none;
+
+		}
+
+	</style>
+		
 </head>
 <body>
 
+
+<div class="fondo"  id="fondo" >
+
+<h2>Esto es el div contenedor</h2>
+<input type="button" value="Abre DIV Modal" class="but" id="openDIV" >
+<h2>Ayudas para el ejercicio</h2>
+el div contenedor debera ser desactivado cuando se astive la ventana modal</p>
+<p>Deshabilitar el contenedor podria ser darle transparecia y deshabilitar todos sus botones</p>
+Desactivado :
+pointer-events:none;
+opacity:0.3;
+Activado
+pointer-events:auto;
+opacity:1;</p>
+
+
+<form id="formulario" method="get" >
+
+</div>
+
+<div class="ventana_OFF" id="modal">
+	<input type="button" value="X" class="cl" id="closed" >
+	<div class="modal1" >
+		
+		<div class="prim" >
+			<p>CodArt</p>
+			<br>
+			<input type="text" name="" class="ini">
+
+				<p>Descripcion</p>
+			<input type="text" name="" class="ini">
+
+				<p>Saldo Stock</p>
+			<input type="text" name="" class="ini">
+		</div>
+		<div class="sec" >
+
+			<p class="fech" >Familia de Productos</p>
+			<select  class="fecha" id="articulos" ></select>
+			<p >Fecha de Alta</p>
+			<input type="date" class="ini">
+
+			</form>
+
+
+			<button id="enviar" >Enviar</button>
+			
+
+		</div>
+
+	</div>
+
+</div>
+
 </body>
+
+<script  src="../jquery_ul.js" ></script>
+<script src="./arregloArticulos.js"></script>
+<script type="text/javascript">
+
+
+
+var objJSON = JSON.parse(textoJSON_ART);
+var objSelect = document.getElementById("articulos");
+var objEnviar = document.getElementById("enviar");
+var objForm = document.getElementById("formulario");
+var objAbreDIV = document.getElementById("openDIV");
+var objClosed = document.getElementById("closed");
+
+function creaOpciones(){
+	objJSON.Conservas.forEach(function(argValor , argIndice){
+
+		var objOpcion = document.createElement("option");
+		objOpcion.setAttribute("value" , argValor.descripcion);
+		objOpcion.innerHTML = argValor.descripcion;
+		objSelect.appendChild(objOpcion);
+	})
+}	
+
+
+
+//inicio del documento
+$(document).ready(function(){
+	
+	$("#modal").attr("class","ventana_OFF");
+	$("#fondo").attr("class","fondo");
+	creaOpciones();
+	
+});
+
+objEnviar.onclick=function(){
+		objForm.action = "./enviado.html";
+		objForm.submit();
+	}	
+
+
+
+//abreDIV
+objAbreDIV.onclick=function(){
+
+		$("#fondo").attr("class","fondo_OFF");
+		$("#modal").attr("class","ventana");
+
+	}	
+
+
+//Cierra DIV
+objClosed.onclick=function(){
+
+		$("#fondo").attr("class","fondo");
+		$("#modal").attr("class","ventana_OFF");
+
+	}	
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
 </html>
