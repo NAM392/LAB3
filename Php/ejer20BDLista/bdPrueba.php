@@ -2,7 +2,7 @@
 
 <?php
 
-	echo "ejer20BDLista";
+	echo "BASE DE DATOS";
 	echo "<br>";
 	echo "<br>";
 	define("SERVER" , "localhost");
