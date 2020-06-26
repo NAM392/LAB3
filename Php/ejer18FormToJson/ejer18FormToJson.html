@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		div.fondo{
+
+				height: 450px;
+			    width: 100%;
+			    background-color: lightblue;
+			    opacity: 1;
+			    pointer-events: auto;
+			}
+
+
+
+		
+
+		div.ventana{
+				
+			    height: 200px;
+			    width: 403px;
+			    background-color: grey;
+			    margin-left: 430px;
+			    margin-top: -20%;
+			    display: block;
+
+			    opacity: 1;
+			    pointer-events: auto;
+				visibility: visible;
+			    
+
+		}
+
+
+		div.modal1{
+				background-color: lightgrey;
+			    height: 142px;
+			    width: 403px;
+			    display: flex;
+			    margin-top: 29px;
+		}
+
+
+		div.prim{
+
+			        height: 142px;
+				    width: 201px;
+				    background-color: lightgrey;
+		}
+
+
+		div.sec{
+				height: 142px;
+			    width: 201px;
+			    background-color: lightgrey;
+			    
+
+		}
+
+
+		input.ini{
+			height: 10px;
+		    margin: 0px;
+		    margin-left: 15px;
+		    background-color: white;
+		}
+
+
+
+		p{
+			    margin: 0px;
+   			    margin-left: 15px;
+		}
+
+
+		select{
+			    width: 145px;
+   				 margin-left: 15px;
+		}
+
+		p.fech{
+			padding-top: 20px;
+
+		}
+
+		select.fecha{
+			margin-top: 0px;
+		}
+
+
+		button{
+			    width: 139px;
+			    margin-left: 20px;
+			    margin-top: 10px;
+			    height: 23px;
+		}
+
+
+		input.but{
+				height: 32px;
+    			width: 14%;
+				background-color: grey;
+				color: white;
+		}
+
+		input.cl{
+			background-color: grey;
+		    color: red;
+		    margin: 0;
+		    padding: 0;
+		    height: 20px;
+		}
+
+
+
+		div.ventana_OFF{
+			visibility: hidden;	
+
+
+
+		}
+
+		div.fondo_OFF{
+				height: 450px;
+			    width: 100%;
+			    background-color: lightblue;
+			    opacity: 0.3;
+			    pointer-events: none;
+
+		}
+
+	</style>
+		
+</head>
+<body>
+
+
+<div class="fondo"  id="fondo" >
+
+
+<input type="button" value="Ventana Modal" class="but" id="openDIV" >
+
+<form id="formulario" >
+
+</div>
+
+<div class="ventana_OFF" id="modal">
+	<input type="button" value="X" class="cl" id="closed" >
+	<div class="modal1" >
+		
+		<div class="prim" >
+			<p>idUsuario</p>
+			<br>
+			<input type="text"  class="ini" name="idUser" required>
+
+				<p>Nombre</p>
+			<input type="text"  class="ini" name="nombre" required >
+
+				<p>Apellido</p>
+			<input type="text"  class="ini" name="surname" required>
+		</div>
+		<div class="sec" id="mismo" >
+
+			
+			<p >Fecha de Alta</p>
+			<input type="date" class="ini" name="date" required >
+
+			</form>
+
+
+			<button id="enviar" >Enviar</button>
+			
+
+		</div>
+
+	</div>
+
+</div>
+
+</body>
+
+<script  src="../jquery_ul.js" ></script>
+<script type="text/javascript">
+
+
+
+
+var objSelect = document.getElementById("articulos");
+var objEnviar = document.getElementById("enviar");
+var objForm = document.getElementById("formulario");
+var objAbreDIV = document.getElementById("openDIV");
+var objClosed = document.getElementById("closed");
+
+
+
+
+//inicio del documento
+$(document).ready(function(){
+	
+	$("#modal").attr("class","ventana_OFF");
+	$("#fondo").attr("class","fondo");
+	
+	
+});
+
+objEnviar.onclick=function(){
+		if(objForm.checkValidity()){
+			if(confirm("desea enviar el formulario ?")){
+				$("#mismo").html("esperando respuesta .. ");
+				$.ajax({
+
+						type:"POST",
+						url:"./respuesta.php",
+						data:{idUser:$("#idUser").val() , nombre:$("#nombre").val() , surname:$("#surname").val(), date:$("#date").val()},
+						succes: function(res){
+							$("#mismo").empty();
+							$("#mismo").append(res);
+						},
+
+				});
+			
+			}			
+		}
+		else {
+			alert("complete los campos");
+		}	
+
+
+}
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//abreDIV
+objAbreDIV.onclick=function(){
+
+		$("#fondo").attr("class","fondo_OFF");
+		$("#modal").attr("class","ventana");
+
+	}	
+
+
+//Cierra DIV
+objClosed.onclick=function(){
+
+		$("#fondo").attr("class","fondo");
+		$("#modal").attr("class","ventana_OFF");
+
+	}	
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>
