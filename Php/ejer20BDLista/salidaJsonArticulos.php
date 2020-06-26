@@ -3,7 +3,7 @@
 
 	//include("./datosConexionBase.inc");
 	define("SERVER" , "nicolasminnicelli.com.ar");
-	define("USUARIO", "nico_nminnicelli");
+	define("USUARIO", "nminnicelli_nico");
 	define("PASS", "nicolasbd");
 	define("BASE", "nminnicelli_vinos");
 
