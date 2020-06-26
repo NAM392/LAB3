@@ -2,21 +2,14 @@
 
 
 	//include("./datosConexionBase.inc");
-	define("SERVER" , "localhost");
-	define("USUARIO", "root");
-	define("PASS", "probando");
-	define("BASE", "ejercicio");
+	define("SERVER" , "nicolasminnicelli.com.ar");
+	define("USUARIO", "nico_nminnicelli");
+	define("PASS", "nicolasbd");
+	define("BASE", "nminnicelli_vinos");
 
 
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
-	if($conexion->connect_errno){
-		echo "Fallo la conexion" . $conexion->connect_errno; 
-	}
-
-	$sql = "SELECT * FROM `vitivinicultura`";
-
-	if(!( $resultado = $conexion->query($sql))){
 		die($conexion->error);
 
 	}
@@ -25,6 +18,13 @@
 	while($fila=$resultado->fetch_assoc()){
 		
 		$objVinos = new stdClass();
+	if($conexion->connect_errno){
+		echo "Fallo la conexion" . $conexion->connect_errno; 
+	}
+
+	$sql = "SELECT * FROM `vitivinicultura`";
+
+	if(!( $resultado = $conexion->query($sql))){
 		$objVinos->Codigo=$fila['Codigo'];
 		$objVinos->Nombre=$fila['Nombre'];
 		$objVinos->PaisDeOrigen=$fila['PaisDeOrigen'];
