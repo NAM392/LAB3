@@ -63,7 +63,7 @@
 </head>
 <body>
 
-<form  method="GET" id="formulario">
+
 <div class="Cont" >
 	<div class="entrada" >
 		<h2>Datos de entrada : </h2>
@@ -71,7 +71,7 @@
 	</div>
 	<div class="boton" >
 		<h2>Encriptar</h2>
-		<button class="botoncito" id="boton" name="boton" type="submit"></button>
+		<button class="botoncito" id="boton" name="boton" ></button>
 	</div>
 	<div  class="resultado" id="resultado" name="resultado" >
 		<h2>Resultado : </h2>
@@ -80,7 +80,7 @@
 		<h4>Estado del Requerimiento : </h4>
 	</div>
 </div>
-</form>
+
 
 </body>
 <script  src="../../jquery.js" ></script>
@@ -100,7 +100,7 @@
 						
 						url:'./resultado.php',
 						data:{entrada:$('#entrada').val()},
-						type:'GET',
+						type:'POST',
 						success:function(respuestaDelServer , state){
 								
 								$("#resultado").empty();
@@ -113,5 +113,9 @@
 				});//cierra ajax
 
 		});//cierra el click
-	});		
+	});	
+
+
+
+
 </script>

@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ejer20BDLista</title>
+<meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
+<link rel="icon" href="../../Argentina-icon.ico">
+<link rel="stylesheet" type="text/css" href="./EstiloLista.css">
+
+</head>
+<body>
+<div id="todo" class="ver">
+<header>Vitivinicultura <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button>
+
+ </header>
+
+<table>
+	
+<thead>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >MARCA</th>
+		<th  campo-dato = 'art_Family' > NOMBRE</th>
+		<th  campo-dato = 'art_Med' > PAIS</th>		
+		<th  campo-dato = 'art_Des' > VARIETAL</th>	
+
+					
+	</tr>
+
+		<tr>
+
+
+		<th   campo-dato = 'art_CodArt'  ><input type="text" id="marcaV"  value="" required></th>
+		<th  campo-dato = 'art_Family' > <input type="text" id="nombreV" value="" required ></th>
+		<th  campo-dato = 'art_Med' > <input type="text" id="paisV" value="" required></th>	
+		<th  campo-dato = 'art_Des' > <input type="text" id="varietalV" value="" name="varietalV" required></th>
+
+					
+	</tr>
+
+</thead>
+
+<tbody id="tablas" >
+
+
+</tbody>
+<!-- <form id="formulario" method="get" > -->
+
+<div class="ventana_OFF" id="modal">
+	<input type="button" value="X" class="cl" id="closed" >
+	<div class="modal1" >
+		
+		<div class="prim" >
+			<p>CodArt</p>
+			<br>
+			<input type="text" name="" class="ini">
+
+				<p>Descripcion</p>
+			<input type="text" name="" class="ini">
+
+				<p>Saldo Stock</p>
+			<input type="text" name="" class="ini">
+		</div>
+		<div class="sec" >
+
+			<p class="fech" >Familia de Productos</p>
+			<select  class="fecha" id="articulos" ></select>
+			<p >Fecha de Alta</p>
+			<input type="date" class="ini">
+
+			<!--/form> -->
+
+
+			<button id="enviar" >Enviar</button>
+			
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<thead>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >MARCA</th>
+		<th  campo-dato = 'art_Family' > NOMBRE</th>
+		<th  campo-dato = 'art_Med' >PAIS</th>	
+		<th  campo-dato = 'art_Des' > VARIETAL</th>		
+
+
+					
+	</tr>
+</thead>
+
+
+
+</table>
+
+</div>
+
+</body>
+
+<script  src="../jquery.js" ></script>
+
+<script type="text/javascript">
+	
+
+
+var objBoton = document.getElementById("boton");
+var btLimp = document.getElementById("limpiar");
+var objOpenDIV = document.getElementById("abrirDIV");
+var objTBD = document.getElementById("tablas");
+var objSelect = document.getElementById("articulos");
+var objClosed = document.getElementById("closed");
+var objEnviar = document.getElementById("enviar");
+
+
+
+function cargaTabla(){
+	$("#tablas").empty();
+	$("#tablas").html("<p>Esperando respuesta .. </p>");
+	var objAjax = $.ajax({
+						
+						url: "./salidaJSONVinos.php",
+						data: {
+							
+							/*orden: $("#orden").val(),*/
+							marcaV: $("#marcaV").val(),
+							nombreV: $("#nombreV").val(),
+							paisV: $("#paisV").val(),
+							varietalV: $("#varietalV").val()
+							
+						},
+						type:"GET",
+						success:function(respuesta , state){
+
+									$("#tablas").empty();
+									var objJSON = JSON.parse(respuesta);
+									objJSON.Vinos.forEach(function(argValor , argIndice){
+										var objTR = document.createElement("tr");
+																	
+											var objTD = document.createElement("td");	
+											objTD.setAttribute("campo-dato" , "art_CodArt");
+											objTD.innerHTML = argValor.Codigo;
+											objTR.appendChild(objTD);
+											
+											var objTD = document.createElement("td");
+											objTD.setAttribute("campo-dato" , "art_Family");
+											objTD.innerHTML = argValor.Nombre;
+											objTR.appendChild(objTD);
+										
+											var objTD = document.createElement("td");
+											objTD.setAttribute("campo-dato" , "art_Med");
+											objTD.innerHTML = argValor.PaisDeOrigen;
+											objTR.appendChild(objTD);
+																				
+											var objTD = document.createElement("td");
+											objTD.setAttribute("campo-dato" , "art_Des");
+											objTD.innerHTML = argValor.Varietal;
+											objTR.appendChild(objTD);
+
+											
+											objTBD.appendChild(objTR);
+											
+
+										});//cierro el foreach
+
+									objTBD.innerHTML += "Cantidad de registros  " + objJSON.cuenta ;
+
+						}	//cierra funcion asignada al success
+
+					});	//cierra ajax
+
+}  //cierro carga tabla	
+
+//inicio del documento
+//$(document).ready(function(){
+
+//});
+
+
+//boton limpiar
+$("#limpiar").click(function(){
+	$("#tablas").empty();
+
+});
+
+
+
+
+//carga elementos
+$("#boton").click(function(){
+		//$("#orden").val("Codigo");
+		cargaTabla();
+
+});
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
