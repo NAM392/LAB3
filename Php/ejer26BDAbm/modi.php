@@ -34,7 +34,7 @@
 
 
 		//preparacion
-	if(!( $sentencia = $conexion->prepare("update vitivinicultura set Nombre=?,Codigo=?,PaisDeOrigen=?,Varietal=? where Nombre=?;"))){
+	if(!( $sentencia = $conexion->prepare("update Vitivinicultura set Nombre=?,Codigo=?,PaisDeOrigen=?,Varietal=? where Nombre=?;"))){
 		echo "Falló la preparación: (" . $conexion->errno . ") " . $conexion->error;
 	}
 

@@ -32,7 +32,7 @@
 
 
 	//preparacion
-	if(!( $sentencia = $conexion->prepare("insert into vitivinicultura (Nombre,Codigo,PaisDeOrigen,Varietal) values (?,?,?,?) "))){
+	if(!( $sentencia = $conexion->prepare("insert into Vitivinicultura (Nombre,Codigo,PaisDeOrigen,Varietal) values (?,?,?,?) "))){
 		echo "Falló la preparación: (" . $conexion->errno . ") " . $conexion->error;
 	}
 
