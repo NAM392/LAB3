@@ -504,7 +504,7 @@ function cargaTabla(){
 
 //inicio del documento
 $(document).ready(function(){
-todoListoParaAlta();
+//todoListoParaAlta();
 
 });
 
@@ -522,7 +522,7 @@ $("#boton").click(function(){
 
 //enviar formulario de ALTA	
 $("#enviar").click(function(){
-	todoListoParaAlta();
+	//todoListoParaAlta();
 	var conf = confirm("Esta seguro que desea agregar ? ");
 	if(conf==true){
 		alta();
@@ -538,26 +538,15 @@ $("#enviar").click(function(){
 	}
 });
 
-//enviar formulario de MODIFICA
-$("#btn_Modi").click(function(){
-	todoListoParaAlta();
-	var conf = confirm("Esta seguro que desea modificar ? ");
-	if(conf==true){
-		modi();
-		$("#marca_modi").val("");
-		$("#nombre_modi").val("");
-		$("#origen_modi").val("");
-		$("#varietales_modi").val("");
-		$("#modificacion").attr("class","ventana_OFF");
-		$("#todo").attr("class","ver");
-		$("#tablas").empty();
-		$("#tablas").empty();
-		cargaTabla();
-	}
+
+
+
+//boton abrir DIV ALTA
+$("#alta").click(function(){
+	$("#todo").attr("class","todoNONE");
+	$("#modal").attr("class","ventana");
+
 });
-
-
-
 
 
 //Cierra alta
@@ -580,15 +569,25 @@ function AbroModifica(){
 	$('#modificacion').attr('class','ventana');
 
 }
-
-
-//boton abrir DIV ALTA
-$("#alta").click(function(){
-	$("#todo").attr("class","todoNONE");
-	llenaVarietales();
-	$("#modal").attr("class","ventana");
-
+//enviar formulario de MODIFICA
+$("#btn_Modi").click(function(){
+	//todoListoParaAlta();
+	var conf = confirm("Esta seguro que desea modificar ? ");
+	if(conf==true){
+		modi();
+		$("#marca_modi").val("");
+		$("#nombre_modi").val("");
+		$("#origen_modi").val("");
+		$("#varietales_modi").val("");
+		$("#modificacion").attr("class","ventana_OFF");
+		$("#todo").attr("class","ver");
+		$("#tablas").empty();
+		$("#tablas").empty();
+		cargaTabla();
+	}
 });
+
+
 
 //BAJA DE VINO
 function borrando(nombre){

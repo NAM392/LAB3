@@ -8,6 +8,7 @@
 
 
 
+
 	//creo conexion con el servidor
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
@@ -48,7 +49,7 @@
 		echo "Falló la ejecucion : (" . $sentencia->errno . ") " . $sentencia->error;
 	}
 	else {
-		echo "Se modifico el producto correctamente()";
+		echo "Se modifico el producto correctamente";
 	}
 
 
