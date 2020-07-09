@@ -18,7 +18,7 @@
 	$nombre = $_GET['nombreDelVino'];
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `vitivinicultura` WHERE Nombre='$nombre';";
+	$sql = "SELECT * FROM `Vitivinicultura` WHERE Nombre='$nombre';";
 
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD

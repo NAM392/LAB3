@@ -17,7 +17,7 @@
 
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `vitivinicultura` ";
+	$sql = "SELECT * FROM `Vitivinicultura` ";
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD
 	if(!( $resultado = $conexion->query($sql))){

@@ -23,7 +23,7 @@
 	//$orden = $_GET['orden'];
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `vitivinicultura` where ";
+	$sql = "SELECT * FROM `Vitivinicultura` where ";
 
 	//filtros
 	
