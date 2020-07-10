@@ -11,8 +11,17 @@
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
 	//si la conexion falla emite un cartel
-	if($conexion->connect_errno){
-		echo "Fallo la conexion" . $conexion->connect_errno; 
+	if($conexion->connect_errno<>0){
+		$puntero = fopen("./errores.log","a");
+		fwrite($puntero,"fallo la conexion de la base de datos: ");
+		fwrite($puntero,$conexion->connect_errno . " ");
+		$fecha=date("Y-m-d");
+		fwrite($puntero,date("Y-m-d H-i");
+		fwrite($puntero,"\n");
+
+		fclose($puntero);
+		die();
+		
 	}
 
 
@@ -21,9 +30,18 @@
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD
 	if(!( $resultado = $conexion->query($sql))){
-		die($conexion->error);
-	}
+		$puntero = fopen("./errores.log","a");
+		fwrite($puntero,"fallo la conexion de la base de datos: ");
+		fwrite($puntero,$conexion->error . " ");
+		$fecha=date("Y-m-d");
+		fwrite($puntero,date("Y-m-d H-i");
+		fwrite($puntero,"\n");
 
+		fclose($puntero);
+		die();
+		
+	}
+		
 	//variable con la cantidad de registros
 	$cuenta = $resultado->num_rows;
 

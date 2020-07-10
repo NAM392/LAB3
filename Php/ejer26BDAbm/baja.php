@@ -28,7 +28,16 @@
 
 
 	if(!( $resultado = $conexion->query($sql))){
-		die($conexion->error);
+		$puntero = fopen("./errores.log","a");
+		fwrite($puntero,"fallo la conexion de la base de datos: ");
+		fwrite($puntero,$conexion->error . " ");
+		$fecha=date("Y-m-d");
+		fwrite($puntero,date("Y-m-d H-i");
+		fwrite($puntero,"\n");
+
+		fclose($puntero);
+		die();
+		
 	}
 	else { echo " $nombre se ha borrado";}
 
