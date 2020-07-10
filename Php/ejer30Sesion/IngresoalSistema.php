@@ -21,7 +21,7 @@
 
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `ingresos` where ";
+	$sql = "SELECT * FROM `ingresos` ";
 
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD
@@ -35,7 +35,7 @@
 	//recorro los resultados y los agrego en el array
 	while($fila=$resultado->fetch_assoc()){
 		
-		if(($usuario == $fila['usuario'] ) && ($password == $fila['pass'] ){
+		if(($usuario == $fila['usuario'] ) && ($password == $fila['pass'] )){
 			$resultante = true;
 
 		}
@@ -45,16 +45,16 @@
 	//cierro la conexion con la base de datos
 	$conexion->close();
 
-
+	//echo $resultante;
 	//muestro el resultado
 	if(!$resultante){
-		header('Location: ./formularioDeLogin.html');
+		echo "<p><button onclick=\"location.href = './destruirSesion.php'\"> Ingreso Invalido</button></p>";
 		exit();
-
 	}
+
 	session_start();
-	$_SESSION[$password] = session_id();
-	$_SESSION['usuario'] = $log;
+	$_SESSION['ejercicio'] = session_id();
+	$_SESSION['usuario'] = $usuario;
 
 	echo "<p><button onclick=\"location.href = './app_modulo/ejer26BDAbm.html'\"> Ingrese a la aplicacion </button></p>";
 

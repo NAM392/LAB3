@@ -67,13 +67,13 @@
 	</style>
 </head>
 <body>
-<div class="fondo" >
-	<div class="LOGIN" >
+<div class="fondo" id="fonde">
+	<div class="LOGIN" id="logs" >
     <h2>INGRESO</h2>		
 	<p>USUARIO</p>
 	<input type="text" id="user">
 	<p>PASSWORD</p>
-	<input type="text" id="pass" >	
+	<input type="password" id="pass" >	
 	<br><br><br>
 	<button id="send" >ENVIAR</button>
 
@@ -88,7 +88,7 @@
 <script  src="../jquery.js" ></script>
 <script type="text/javascript">
 	
-
+var objFondo = document.getElementById("logs");
 
 
 $( "#send" ).click(function() {
@@ -104,7 +104,9 @@ $( "#send" ).click(function() {
 						},
 						type:"GET",
 						success:function(respuesta , state){
-										
+							
+							 objFondo.innerHTML = '';
+							 objFondo.innerHTML = respuesta;
 
 						}	//cierra funcion asignada al success
 

@@ -284,7 +284,7 @@
 </head>
 <body>
 <div id="todo" class="ver">
-<header>Vitivinicultura <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button>
+<header>Vitivinicultura <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button><button id="END" >Cerrar Sesion</button>
 
  </header>
 
@@ -400,7 +400,7 @@
 
 </body>
 
-<script  src="../jquery.js" ></script>
+<script  src="./jquery.js" ></script>
 
 <script type="text/javascript">
 	
@@ -512,6 +512,11 @@ $(document).ready(function(){
 //boton limpiar
 $("#limpiar").click(function(){
 	$("#tablas").empty();
+
+});
+//boton CERRAR SESION
+$("#END").click(function(){
+	location.href = "../destruirSesion.php";
 
 });
 

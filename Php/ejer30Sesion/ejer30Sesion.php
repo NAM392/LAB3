@@ -1,11 +1,15 @@
 <?php 
 
 
+session_start();
+if(!isset($_SESSION['ejercicio'])){
+	header('location:./formularioDeLogin.html');
+	exit();
+}
 
 
 
 
-echo md5("pepe");
 
 
 
@@ -13,8 +17,15 @@ echo md5("pepe");
 
 
 
+/*
+
+nico = nicolas
+
+rulo = pepe
 
 
+
+*/
 
 
 
