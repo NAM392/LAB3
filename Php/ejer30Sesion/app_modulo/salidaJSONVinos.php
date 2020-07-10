@@ -1,6 +1,12 @@
 <?php 
 
-	include("./BaseDatos.inc");
+
+	define("SERVER" , "localhost");
+	define("USUARIO", "nminnicelli_nico");
+	define("PASS", "nicolasbd");
+	define("BASE", "nminnicelli_vinos");
+
+
 	//creo conexion con el servidor
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
@@ -8,12 +14,25 @@
 	if($conexion->connect_errno){
 		echo "Fallo la conexion" . $conexion->connect_errno; 
 	}
-
-	//variables de entrada
-	$nombre = $_GET['nombreDelVino'];
+	//variables del input
+	/**/
+	$marca = $_GET['marcaV'];
+	$nombre = $_GET['nombreV'];
+	$origen = $_GET['paisV'];
+	$varietal = $_GET['varietalV'];
+	//$orden = $_GET['orden'];
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `Vitivinicultura` WHERE Nombre='$nombre';";
+	$sql = "SELECT * FROM `Vitivinicultura` where ";
+
+	//filtros
+	
+	$sql = $sql."Codigo like '%" . $marca ."%' and ";
+	$sql = $sql."Nombre like '%" . $nombre ."%' and ";
+	$sql = $sql."PaisDeOrigen like '%" . $origen ."%' and ";
+	$sql = $sql."Varietal like '%" . $varietal ."%' ";
+	 /**/
+	//$sql = $sql. "order by".$orden;
 
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD
@@ -24,7 +43,7 @@
 	//variable con la cantidad de registros
 	$cuenta = $resultado->num_rows;
 
-		//creo una variable local de tipo array
+	//creo una variable local de tipo array
 	$vinitos=[];
 
 	//recorro los resultados y los agrego en el array
@@ -55,7 +74,6 @@
 	echo $salidaJSON;
 
 
+
+
  ?>
-
-
-
