@@ -1,10 +1,14 @@
 <?php 
+session_start();
+if(!isset($_SESSION['ejercicio'])){
+	header('location:./formularioDeLogin.html');
+	exit();
+}
 
 
-	define("SERVER" , "localhost");
-	define("USUARIO", "nminnicelli_nico");
-	define("PASS", "nicolasbd");
-	define("BASE", "nminnicelli_vinos");
+
+	include("./BaseDatos.inc");
+
 
 
 	//creo conexion con el servidor

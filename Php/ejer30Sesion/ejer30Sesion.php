@@ -7,11 +7,7 @@ if(!isset($_SESSION['ejercicio'])){
 	exit();
 }
 
-
-
-
-
-
+echo "atraccion fataaaaal";
 
 
 
