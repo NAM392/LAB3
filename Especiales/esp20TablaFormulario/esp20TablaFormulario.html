@@ -12,11 +12,11 @@
 				width: 100%;
 				overflow: auto;
 			}
-/*
+/**/
 			*{margin: 0 ; padding: 0 ; border:0 none ;} 
-			 /*se asegura de dejar todo en 0 para que quede bien relleno
+			 /*se asegura de dejar todo en 0 para que quede bien relleno*/
 			*{box-sizing: border-box;}
-			*/
+			
 			table{
 				height: 100%;
 				width: 100%;
@@ -57,17 +57,17 @@
 			}
 
 			[campo-dato = 'art_Des']{
-				width: 20%;
+				width: 15%;
 				padding-left: 20px;
 			}
 
 			[campo-dato = 'art_fecha']{
-				width: 15%;
+				width: 10%;
 				padding-left: 20px;
 			}
 
 			[campo-dato = 'art_saldo']{
-				width: 15%;
+				width: 10%;
 				padding-left: 20px;
 			}
 
@@ -157,7 +157,24 @@
 
 
 
-		
+
+
+			div.ventana {
+			    height: 200px;
+			    width: 403px;
+			    background-color: #C21E1E;
+			    margin-left: 450px;
+			    margin-top: -21%;
+			    display: block;
+			    opacity: 1;
+			    pointer-events: auto;
+			    visibility: visible;
+			    position: fixed;
+			    margin-bottom: 59px;
+			}
+
+
+		/*
 
 		div.ventana{
 				
@@ -174,7 +191,7 @@
 			    
 
 		}
-
+*/
 
 		div.modal1{
 				background-color: #FCF0BF;
@@ -321,12 +338,33 @@
 
 <tbody id="tablas" >
 
-
 </tbody>
 <form id="formulario" method="get" >
 
 
 
+
+
+
+<thead>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >$codArt</th>
+		<th  campo-dato = 'art_Family' >$ Familia</th>
+		<th  campo-dato = 'art_Med' >$UM</th>	
+		<th  campo-dato = 'art_Des' > Descripcion</th>		
+		<th  campo-dato = 'art_fecha' >$ Fecha Alta</th>
+		<th  campo-dato = 'art_saldo' >$Saldo Stock</th>
+
+					
+	</tr>
+</thead>
+
+
+
+</table>
+
+</div>
 <div class="ventana_OFF" id="modal">
 	<input type="button" value="X" class="cl" id="closed" >
 	<div class="modal1" >
@@ -360,28 +398,6 @@
 	</div>
 
 </div>
-
-
-<thead>
-	<tr>
-
-		<th  campo-dato = 'art_CodArt' >$codArt</th>
-		<th  campo-dato = 'art_Family' >$ Familia</th>
-		<th  campo-dato = 'art_Med' >$UM</th>	
-		<th  campo-dato = 'art_Des' > Descripcion</th>		
-		<th  campo-dato = 'art_fecha' >$ Fecha Alta</th>
-		<th  campo-dato = 'art_saldo' >$Saldo Stock</th>
-
-					
-	</tr>
-</thead>
-
-
-
-</table>
-
-</div>
-
 </body>
 
 <script  src="../jquery_ul.js" ></script>
@@ -471,9 +487,10 @@ $(document).ready(function(){
 
 //boton abrir DIV
 $("#abrirDIV").click(function(){
-	$("#todo").attr("class","todoNONE");
-	Opciones();
+		Opciones();
 	$("#modal").attr("class","ventana");
+	$("#todo").attr("class","todoNONE");
+
 
 });
 

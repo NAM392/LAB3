@@ -1,11 +1,5 @@
 <?php 
 
-session_start();
-if(!isset($_SESSION['ejercicio'])){
-	header('location:../formularioDeLogin.html');
-	exit();
-}
-
 
 
 	include("./BaseDatos.inc");
@@ -33,7 +27,7 @@ if(!isset($_SESSION['ejercicio'])){
 	if(!( $resultado = $conexion->query($sql))){
 		die($conexion->error);
 	}
-	else { echo " $nombre se ha borrado";}
+	else { echo " <br><br><li> $nombre  SE HA BORRADO </li>";}
 
 
 	//cierro la conexion con la base de datos

@@ -6,7 +6,7 @@
 <link rel="icon" href="../../Argentina-icon.ico">
 <style>
 
-		
+		/**/
 			html , body {
 				height: 100%;
 				width: 100%;
@@ -74,6 +74,14 @@
 				display: block;  /* sin esto se agruparian todo en una columna  */
 				overflow: hidden;
 				height: 50px;
+
+			}
+
+			tr.regis{
+				display: block;  /* sin esto se agruparian todo en una columna  */
+				overflow: hidden;
+				height: 25px;
+				font-family: courier,arial,helvética;
 
 			}
 
@@ -154,7 +162,7 @@
 
 
 		
-
+/*
 		div.ventana{
 				
 			        height: 200px;
@@ -169,7 +177,22 @@
 				    position: fixed;
 			    
 
-		}
+		}*/
+
+
+			div.ventana {
+			    height: 200px;
+			    width: 403px;
+			    background-color: #C21E1E;
+			    margin-left: 350px;
+			    margin-top: -30%;
+			    display: block;
+			    opacity: 1;
+			    pointer-events: auto;
+			    visibility: visible;
+			    position: fixed;
+			    margin-bottom: 59px;
+			}
 
 
 		div.modal1{
@@ -278,13 +301,17 @@
 			    margin-left: 20px;
 			    height: 20px;
 		}
+		input.Orden{
+			width: 100px;
+			margin-left: 10px;
+		}
 
 </style>
 
 </head>
 <body>
 <div id="todo" class="ver">
-<header>Vitivinicultura <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button><button id="END" >Cerrar Sesion</button>
+<header> Vitivinicultura   <input class="Orden" readonly id="orden" > <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button>
 
  </header>
 
@@ -293,10 +320,10 @@
 <thead>
 	<tr>
 
-		<th  campo-dato = 'art_CodArt' >BODEGA</th>
-		<th  campo-dato = 'art_Family' > NOMBRE</th>
-		<th  campo-dato = 'art_Med' > PAIS</th>		
-		<th  campo-dato = 'art_Des' > VARIETAL</th>	
+		<th  id="Bodega_Or" campo-dato = 'art_CodArt' >BODEGA</th>
+		<th id="Nombre_Or"  campo-dato = 'art_Family' > NOMBRE</th>
+		<th id="Origen_Or"  campo-dato = 'art_Med' > PAIS</th>		
+		<th id="Varietal_Or" campo-dato = 'art_Des' > VARIETAL</th>	
 		<!--<th  campo-dato = 'art_fecha' ></th>	-->
 
 					
@@ -321,11 +348,34 @@
 </tbody>
 <!-- Ventana Modal Div de Alta -->
 
+
+
+<thead>
+	<tr class="regis">
+		<th id="Registros" ></th>
+	</tr>
+	<tr>
+
+		<th  campo-dato = 'art_CodArt' >BODEGA</th>
+		<th  campo-dato = 'art_Family' > NOMBRE</th>
+		<th  campo-dato = 'art_Med' >PAIS</th>	
+		<th  campo-dato = 'art_Des' > VARIETAL</th>
+		
+		<!--<th  campo-dato = 'art_fecha' >MODIS BAJAS</th>	-->			
+				
+	</tr>
+</thead>
+
+
+
+</table>
+
+</div>
 <div class="ventana_OFF" id="modal">
 	<input type="button" value="X" class="cl" id="closed" >
 	<div class="modal1" id="interna" >
 		
-		<div class="prim" >
+		<div class="prim" id="Form_alta" >
 			<p>Bodega</p>
 			<br>
 			<input type="text" name="" class="ini"  id="marca_alta">
@@ -342,7 +392,7 @@
 			<input type="text" name="" class="ini" id="varietales_alta" >
 		<!--	<select  class="fecha" id="varietales_alta" ></select>-->
 			<br><br><br><br>
-			<button id="enviar" >Enviar</button>
+			<button id="enviar" >Agregar</button>
 			
 
 		</div>
@@ -371,7 +421,7 @@
 			<input type="text" name="" class="ini" id="varietales_modi" >
 			<!--<select  class="fecha" id="varietales_modi" ></select>-->
 			<br><br><br><br>
-			<button id="btn_Modi" >Enviar</button>
+			<button id="btn_Modi" >Modificar</button>
 			
 
 		</div>
@@ -379,28 +429,16 @@
 	</div>
 
 </div>
-
-<thead>
-	<tr>
-
-		<th  campo-dato = 'art_CodArt' >BODEGA</th>
-		<th  campo-dato = 'art_Family' > NOMBRE</th>
-		<th  campo-dato = 'art_Med' >PAIS</th>	
-		<th  campo-dato = 'art_Des' > VARIETAL</th>
-		<!--<th  campo-dato = 'art_fecha' >MODIS BAJAS</th>	-->			
-				
-	</tr>
-</thead>
-
-
-
-</table>
+<div class="ventana_OFF" id="ventana_del_server">
+	<input type="button" value="X" class="cl" id="Cierro_respuesta" >
+	<div class="modal1" id="respuesta_del_server">
+	
+	</div>
 
 </div>
-
 </body>
 
-<script  src="./jquery.js" ></script>
+<script  src="../jquery.js" ></script>
 
 <script type="text/javascript">
 	
@@ -409,6 +447,11 @@
 var objBoton = document.getElementById("boton");
 var btLimp = document.getElementById("limpiar");
 var objTBD = document.getElementById("tablas");
+var objREG = document.getElementById("Registros");
+var ModalRespuesta = document.getElementById("respuesta_del_server");
+var objCierrRespuesta = document.getElementById("Cierro_respuesta");
+
+
 //acciones alta
 var objSelect = document.getElementById("varietales_alta");
 var objClosed = document.getElementById("closed");
@@ -416,6 +459,7 @@ var objEnviar = document.getElementById("enviar");
 var objIngName = document.getElementById("nombre_alta");
 var objIngMark = document.getElementById("marca_alta");
 var objIngOrig = document.getElementById("pais_alta");
+
 
 //acciones modifica
 var objCierrModi = document.getElementById("Cierro_modi");
@@ -431,7 +475,7 @@ function cargaTabla(){
 						url: "./salidaJSONVinos.php",
 						data: {
 							
-							/*orden: $("#orden").val(),*/
+							orden: $("#orden").val(),
 							marcaV: $("#marcaV").val(),
 							nombreV: $("#nombreV").val(),
 							paisV: $("#paisV").val(),
@@ -494,7 +538,7 @@ function cargaTabla(){
 											
 										});//cierro el foreach
 
-									objTBD.innerHTML += "Cantidad de registros  " + objJSON.cuenta ;
+									objREG.innerHTML = "Cantidad de registros  " + objJSON.cuenta ;
 
 						}	//cierra funcion asignada al success
 
@@ -504,7 +548,12 @@ function cargaTabla(){
 
 //inicio del documento
 $(document).ready(function(){
-//todoListoParaAlta();
+	$("#orden").val("Nombre");
+	$("#enviar").attr("disabled","true");
+	//objIngOrig.checkValidity()=false;
+	//objIngName.checkValidity()=false;
+	//objIngMark.checkValidity()=false;
+	cargaTabla();
 
 });
 
@@ -512,11 +561,7 @@ $(document).ready(function(){
 //boton limpiar
 $("#limpiar").click(function(){
 	$("#tablas").empty();
-
-});
-//boton CERRAR SESION
-$("#END").click(function(){
-	location.href = "../destruirSesion.php";
+	$("#Registros").empty();
 
 });
 
@@ -536,13 +581,37 @@ $("#enviar").click(function(){
 		$("#pais_alta").val("");
 		$("#varietales_alta").val("");
 		$("#modal").attr("class","ventana_OFF");
-		$("#todo").attr("class","ver");
-		$("#tablas").empty();
-		$("#tablas").empty();
+		$("#ventana_del_server").attr("class","ventana");
+		
+		
 		cargaTabla();
 	}
 });
 
+//boton ordena por BODEGA
+$("#Bodega_Or").click(function(){
+	$("#orden").val("Codigo");
+	cargaTabla();
+	$("#orden").val("Bodega");
+});
+
+//boton ordena por Nombre
+$("#Nombre_Or").click(function(){
+	$("#orden").val("Nombre");
+	cargaTabla();
+});
+
+//boton ordena por Origen
+$("#Origen_Or").click(function(){
+	$("#orden").val("PaisDeOrigen");
+	cargaTabla();
+});
+
+//boton ordena por Varietal
+$("#Varietal_Or").click(function(){
+	$("#orden").val("Varietal");
+	cargaTabla();
+});
 
 
 
@@ -568,6 +637,15 @@ objCierrModi.onclick=function(){
 		$("#modificacion").attr("class","ventana_OFF");
 		cargaTabla();
 	}
+//cierro respuesta del servidor	
+objCierrRespuesta.onclick=function(){
+
+		$("#todo").attr("class","ver");
+		$("#ventana_del_server").attr("class","ventana_OFF");
+		cargaTabla();
+	}
+
+
 // abro modifica
 function AbroModifica(){
 	$('#todo').attr('class','todoNONE');
@@ -585,10 +663,8 @@ $("#btn_Modi").click(function(){
 		$("#origen_modi").val("");
 		$("#varietales_modi").val("");
 		$("#modificacion").attr("class","ventana_OFF");
-		$("#todo").attr("class","ver");
-		$("#tablas").empty();
-		$("#tablas").empty();
-		cargaTabla();
+		$("#ventana_del_server").attr("class","ventana");
+		
 	}
 });
 
@@ -600,55 +676,28 @@ function borrando(nombre){
 	if(confirmado == true){
 		baja(nombre);
 		$("#tablas").empty();
-		cargaTabla();
+		$("#ventana_del_server").attr("class","ventana");
 	}
-
-
 	
 };
 
 
-/*
-function llenaVarietales(){
-	
-	var objAjax = $.ajax({
-						
-						url: "./salidaJSONVarietal.php",
-						data: {	},
-						type:"GET",
-						success:function(respuesta , state){
-							
-							var objJSON = JSON.parse(respuesta);
-							objJSON.varietales.forEach(function(argValor , argIndice){
-								var objOpcion = document.createElement("option");
-								objOpcion.setAttribute("value" , argValor.Varietal);
-								objOpcion.innerHTML = argValor.Varietal;
-								objSelect.appendChild(objOpcion);
-																			
-							});//cierro el foreach
-
-						}	//cierra funcion asignada al success
-
-	});	//cierra ajax
-
-};  //cierro llenavarietal
-
-*/
-
 //valida las entradas al div de alta
 function todoListoParaAlta(){
-	if((objIngOrig.checkValidity() == true) && (objIngName.checkValidity() == true) && (objIngMark.checkValidity()==true)){
+	if(objIngOrig.checkValidity() == true ){
 
-		alert("hab");
+		//alert("hab");
 		$("#enviar").attr("disabled","false");
 
 	}
-	else {
-		alert("dis");
-		$("#enviar").attr("disabled","true");
-	};
+
 }
 
+//ver este keyup
+	$("#Form_alta").keyup(function(){
+		todoListoParaAlta();
+
+	});
 
 function modi(){	
 	
@@ -667,7 +716,7 @@ function modi(){
 						type:"GET",
 						success:function(respuesta , state){
 
-									alert(respuesta);		
+									ModalRespuesta.innerHTML = respuesta;		
 
 						}	//cierra funcion asignada al success
 
@@ -709,9 +758,6 @@ function CompletaFichaNombre(nombre){
 
 }  //cierro CompletaFichaNombre
 
-
-
-
 function ModifiChange(NombredelVino){
 		CompletaFichaNombre(NombredelVino);
 		AbroModifica();
@@ -731,7 +777,7 @@ function baja(nombre){
 						type:"GET",
 						success:function(respuesta , state){
 
-									alert(respuesta);	
+									ModalRespuesta.innerHTML = respuesta;		
 
 						}	//cierra funcion asignada al success
 
@@ -757,7 +803,8 @@ function alta(){
 						type:"GET",
 						success:function(respuesta , state){
 
-									alert(respuesta);		
+
+									ModalRespuesta.innerHTML = respuesta;	
 
 						}	//cierra funcion asignada al success
 
@@ -767,16 +814,32 @@ function alta(){
 
 
 
+/*
+function llenaVarietales(){
+	
+	var objAjax = $.ajax({
+						
+						url: "./salidaJSONVarietal.php",
+						data: {	},
+						type:"GET",
+						success:function(respuesta , state){
+							
+							var objJSON = JSON.parse(respuesta);
+							objJSON.varietales.forEach(function(argValor , argIndice){
+								var objOpcion = document.createElement("option");
+								objOpcion.setAttribute("value" , argValor.Varietal);
+								objOpcion.innerHTML = argValor.Varietal;
+								objSelect.appendChild(objOpcion);
+																			
+							});//cierro el foreach
 
-/*ver este keyup
-	$("#modal").keyup(function(){
-		todoListoParaAlta();
+						}	//cierra funcion asignada al success
 
-	});*/
+	});	//cierra ajax
 
+};  //cierro llenavarietal
 
-
-
+*/
 
 
 

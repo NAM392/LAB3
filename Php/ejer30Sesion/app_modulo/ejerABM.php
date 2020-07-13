@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php session_start();
+if(!isset($_SESSION['ejercicio'])){
+	header('location:../formularioDeLogin.html');
+	exit();
+}
+
+ ?>
+
+
 <html>
 <head>
 	<title>ejer26DBAbm</title>
@@ -375,7 +383,7 @@
 	<input type="button" value="X" class="cl" id="closed" >
 	<div class="modal1" id="interna" >
 		
-		<div class="prim" id="Form_alta" >
+		<div class="prim" >
 			<p>Bodega</p>
 			<br>
 			<input type="text" name="" class="ini"  id="marca_alta">
@@ -549,11 +557,9 @@ function cargaTabla(){
 //inicio del documento
 $(document).ready(function(){
 	$("#orden").val("Nombre");
-	$("#enviar").attr("disabled","true");
-	//objIngOrig.checkValidity()=false;
-	//objIngName.checkValidity()=false;
-	//objIngMark.checkValidity()=false;
 	cargaTabla();
+
+	//todoListoParaAlta();
 
 });
 
@@ -678,26 +684,53 @@ function borrando(nombre){
 		$("#tablas").empty();
 		$("#ventana_del_server").attr("class","ventana");
 	}
+
+
 	
 };
 
 
+/*
+function llenaVarietales(){
+	
+	var objAjax = $.ajax({
+						
+						url: "./salidaJSONVarietal.php",
+						data: {	},
+						type:"GET",
+						success:function(respuesta , state){
+							
+							var objJSON = JSON.parse(respuesta);
+							objJSON.varietales.forEach(function(argValor , argIndice){
+								var objOpcion = document.createElement("option");
+								objOpcion.setAttribute("value" , argValor.Varietal);
+								objOpcion.innerHTML = argValor.Varietal;
+								objSelect.appendChild(objOpcion);
+																			
+							});//cierro el foreach
+
+						}	//cierra funcion asignada al success
+
+	});	//cierra ajax
+
+};  //cierro llenavarietal
+
+*/
+
 //valida las entradas al div de alta
 function todoListoParaAlta(){
-	if(objIngOrig.checkValidity() == true ){
+	if((objIngOrig.checkValidity() == true) && (objIngName.checkValidity() == true) && (objIngMark.checkValidity()==true)){
 
-		//alert("hab");
+		alert("hab");
 		$("#enviar").attr("disabled","false");
 
 	}
-
+	else {
+		alert("dis");
+		$("#enviar").attr("disabled","true");
+	};
 }
 
-//ver este keyup
-	$("#Form_alta").keyup(function(){
-		todoListoParaAlta();
-
-	});
 
 function modi(){	
 	
@@ -758,6 +791,9 @@ function CompletaFichaNombre(nombre){
 
 }  //cierro CompletaFichaNombre
 
+
+
+
 function ModifiChange(NombredelVino){
 		CompletaFichaNombre(NombredelVino);
 		AbroModifica();
@@ -814,37 +850,65 @@ function alta(){
 
 
 
-/*
-function llenaVarietales(){
-	
-	var objAjax = $.ajax({
-						
-						url: "./salidaJSONVarietal.php",
-						data: {	},
-						type:"GET",
-						success:function(respuesta , state){
-							
-							var objJSON = JSON.parse(respuesta);
-							objJSON.varietales.forEach(function(argValor , argIndice){
-								var objOpcion = document.createElement("option");
-								objOpcion.setAttribute("value" , argValor.Varietal);
-								objOpcion.innerHTML = argValor.Varietal;
-								objSelect.appendChild(objOpcion);
-																			
-							});//cierro el foreach
 
-						}	//cierra funcion asignada al success
+/*ver este keyup
+	$("#modal").keyup(function(){
+		todoListoParaAlta();
 
-	});	//cierra ajax
+	});*/
 
-};  //cierro llenavarietal
 
-*/
+
+
 
 
 
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

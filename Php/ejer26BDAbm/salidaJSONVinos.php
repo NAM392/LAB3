@@ -15,10 +15,11 @@
 	$nombre = $_GET['nombreV'];
 	$origen = $_GET['paisV'];
 	$varietal = $_GET['varietalV'];
-	//$orden = $_GET['orden'];
+	$orden = $_GET['orden'];
+
 
 	//creo la conexion con la base de datos que voy a  usar
-	$sql = "SELECT * FROM `Vitivinicultura` where ";
+	$sql = "SELECT * FROM `Vitivinicultura` WHERE  ";
 
 	//filtros
 	
@@ -26,8 +27,7 @@
 	$sql = $sql."Nombre like '%" . $nombre ."%' and ";
 	$sql = $sql."PaisDeOrigen like '%" . $origen ."%' and ";
 	$sql = $sql."Varietal like '%" . $varietal ."%' ";
-	 /**/
-	//$sql = $sql. "order by".$orden;
+	$sql = $sql. " order by ". $orden;
 
 
 	//si falla la conexion , la corto  .. tambien asigno $resultado a la conexion de la BD

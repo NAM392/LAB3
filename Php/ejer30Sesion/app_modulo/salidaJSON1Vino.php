@@ -1,18 +1,6 @@
 <?php 
 
-session_start();
-if(!isset($_SESSION['ejercicio'])){
-	header('location:../formularioDeLogin.html');
-	exit();
-}
-
-else{
-	
-}
-
-
 	include("./BaseDatos.inc");
-
 	//creo conexion con el servidor
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 

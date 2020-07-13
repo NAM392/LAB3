@@ -41,7 +41,10 @@
 		echo "Falló la ejecucion : (" . $sentencia->errno . ") " . $sentencia->error;
 	}
 	else {
-		echo "Se modifico el producto correctamente";
+		echo "Se Modifico el Vino". $nombre ." correctamente <br>";
+		echo "Bodega : ". $marca ."<br>";
+		echo "Origen : " . $origen . "<br>";
+		echo "Varietal : " .$varietal . "<br>" ;
 	}
 
 
