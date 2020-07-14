@@ -1,5 +1,9 @@
 <?php 
-
+session_start();
+if(!isset($_SESSION['ejercicio'])){
+	header('location:../formularioDeLogin.html');
+	exit();
+}
 
 	include("./BaseDatos.inc");
 
@@ -12,12 +16,12 @@
 	}
 
 	//variables del input
-	/**/
+	
 	$marca = $_GET['marcaV'];
 	$nombre = $_GET['nombreV'];
 	$origen = $_GET['paisV'];
 	$varietal = $_GET['varietalV'];
-	//$orden = $_GET['orden'];
+	
 
 	//creo la conexion con la base de datos que voy a  usar
 	$sql = "SELECT * FROM `Vitivinicultura`";
@@ -41,7 +45,7 @@
 		echo "Falló la ejecucion : (" . $sentencia->errno . ") " . $sentencia->error;
 	}
 	else {
-		echo "Se agrego el Vino". $nombre ." correctamente <br>";
+		echo "Se agrego el Vino  : ". $nombre ." correctamente <br>";
 		echo "Bodega : ". $marca ."<br>";
 		echo "Origen : " . $origen . "<br>";
 		echo "Varietal : " .$varietal . "<br>" ;

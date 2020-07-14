@@ -5,8 +5,18 @@
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
 	//si la conexion falla emite un cartel
-	if($conexion->connect_errno){
-		echo "Fallo la conexion" . $conexion->connect_errno; 
+	if($conexion->connect_errno<>0){
+		$puntero = fopen("./errores.log","a");
+		fwrite($puntero,"Fallo conexion base de datos");
+		fwrite($puntero,$conexion->connect_errno . "");
+
+		$fecha=date("Y-m-d");
+		fwrite($puntero,date("Y-m-d-H-i") . "");
+		fwrite($puntero,"\n");
+
+		fclose($puntero);
+		die();
+		
 	}
 
 	//variables de entrada

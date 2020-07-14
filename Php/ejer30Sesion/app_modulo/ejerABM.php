@@ -5,8 +5,7 @@ if(!isset($_SESSION['ejercicio'])){
 }
 
  ?>
-
-
+<!-- HAGO ESTE EJERCICIO EN PHP PARA PROTEGERLO TAMBIEN CON LA SESION  -->
 <html>
 <head>
 	<title>ejer26DBAbm</title>
@@ -319,7 +318,7 @@ if(!isset($_SESSION['ejercicio'])){
 </head>
 <body>
 <div id="todo" class="ver">
-<header> Vitivinicultura   <input class="Orden" readonly id="orden" > <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button>
+<header> Vitivinicultura   <input class="Orden" readonly id="orden" > <button id="boton" >Carga Datos</button><button id="limpiar" >Limpiar</button><button id="alta" >Alta</button><button id="CerrarT" >Cerrar Sesion</button>
 
  </header>
 
@@ -379,11 +378,12 @@ if(!isset($_SESSION['ejercicio'])){
 </table>
 
 </div>
+<!--VENTANA DE ALTA-->
 <div class="ventana_OFF" id="modal">
 	<input type="button" value="X" class="cl" id="closed" >
 	<div class="modal1" id="interna" >
 		
-		<div class="prim" >
+		<div class="prim" id="Form_alta" >
 			<p>Bodega</p>
 			<br>
 			<input type="text" name="" class="ini"  id="marca_alta">
@@ -408,20 +408,23 @@ if(!isset($_SESSION['ejercicio'])){
 	</div>
 
 </div>
+<!--	VENTANA DE MODIFICA-->
 <div class="ventana_OFF" id="modificacion">
 	<input type="button" value="X" class="cl" id="Cierro_modi" >
 	<div class="modal1" >
 		
 		<div class="prim" >
+
 			<p>Bodega</p>
 			<br>
 			<input type="text" name="" class="ini"  id="marca_modi">
 
-				<p>Nombre</p>
+			<p>Nombre</p>
 			<input type="text" name="" class="ini" id="nombre_modi" readonly >
 
-				<p>Pais</p>
+			<p>Pais</p>
 			<input type="text" name="" class="ini" id="origen_modi" >
+
 		</div>
 		<div class="sec" >
 
@@ -430,13 +433,12 @@ if(!isset($_SESSION['ejercicio'])){
 			<!--<select  class="fecha" id="varietales_modi" ></select>-->
 			<br><br><br><br>
 			<button id="btn_Modi" >Modificar</button>
-			
-
 		</div>
 
 	</div>
 
 </div>
+<!-- VENTANA DE RESPUESTA DEL SERVER -->
 <div class="ventana_OFF" id="ventana_del_server">
 	<input type="button" value="X" class="cl" id="Cierro_respuesta" >
 	<div class="modal1" id="respuesta_del_server">
@@ -446,7 +448,7 @@ if(!isset($_SESSION['ejercicio'])){
 </div>
 </body>
 
-<script  src="../jquery.js" ></script>
+<script  src="./jquery.js" ></script>
 
 <script type="text/javascript">
 	
@@ -461,19 +463,18 @@ var objCierrRespuesta = document.getElementById("Cierro_respuesta");
 
 
 //acciones alta
-var objSelect = document.getElementById("varietales_alta");
-var objClosed = document.getElementById("closed");
-var objEnviar = document.getElementById("enviar");
+var objIngVar = document.getElementById("varietales_alta");
 var objIngName = document.getElementById("nombre_alta");
 var objIngMark = document.getElementById("marca_alta");
 var objIngOrig = document.getElementById("pais_alta");
-
+var objClosed = document.getElementById("closed");
+var objEnviar = document.getElementById("enviar");
 
 //acciones modifica
 var objCierrModi = document.getElementById("Cierro_modi");
 //var btnModifica = document.getElementById("btn_Modi");
 //var objSelVarModi = document.getElementById("solo_var");
-
+var formdealta = document.getElementById("Form_alta");
 
 function cargaTabla(){
 	$("#tablas").empty();
@@ -559,7 +560,14 @@ $(document).ready(function(){
 	$("#orden").val("Nombre");
 	cargaTabla();
 
-	//todoListoParaAlta();
+});
+//inicio del documento
+$(document).ready(function(){
+	objEnviar.disabled = true;
+	objIngName.type="text";
+	objIngOrig.type="text";
+	objIngMark.type="text";
+	objIngVar.type="text";
 
 });
 
@@ -576,9 +584,14 @@ $("#boton").click(function(){
 		cargaTabla();
 });
 
+$("#CerrarT").click(function(){ 
+	var conf = confirm("Esta seguro que desea cerrar sesion ? ");
+	if(conf==true){
+	location.href = "../destruirSesion.php";
+	}
+});	
 //enviar formulario de ALTA	
 $("#enviar").click(function(){
-	//todoListoParaAlta();
 	var conf = confirm("Esta seguro que desea agregar ? ");
 	if(conf==true){
 		alta();
@@ -588,8 +601,6 @@ $("#enviar").click(function(){
 		$("#varietales_alta").val("");
 		$("#modal").attr("class","ventana_OFF");
 		$("#ventana_del_server").attr("class","ventana");
-		
-		
 		cargaTabla();
 	}
 });
@@ -620,37 +631,42 @@ $("#Varietal_Or").click(function(){
 });
 
 
-
 //boton abrir DIV ALTA
 $("#alta").click(function(){
 	$("#todo").attr("class","todoNONE");
 	$("#modal").attr("class","ventana");
+	objIngMark.select();
+	
 
 });
 
 
 //Cierra alta
 objClosed.onclick=function(){
-
-		$("#todo").attr("class","ver");
-		$("#modal").attr("class","ventana_OFF");
-		cargaTabla();
+	$("#todo").attr("class","ver");
+	$("#modal").attr("class","ventana_OFF");
+	$("#marca_alta").val("");
+	$("#nombre_alta").val("");
+	$("#pais_alta").val("");
+	objEnviar.disabled = true;
+	$("#varietales_alta").val("");
+	$("#Registros").empty();
+	cargaTabla();
 	}	
+
 //cierro div Modifica	
 objCierrModi.onclick=function(){
-
-		$("#todo").attr("class","ver");
-		$("#modificacion").attr("class","ventana_OFF");
-		cargaTabla();
+	$("#todo").attr("class","ver");
+	$("#modificacion").attr("class","ventana_OFF");
+	cargaTabla();
 	}
+
 //cierro respuesta del servidor	
 objCierrRespuesta.onclick=function(){
-
-		$("#todo").attr("class","ver");
-		$("#ventana_del_server").attr("class","ventana_OFF");
-		cargaTabla();
+	$("#todo").attr("class","ver");
+	$("#ventana_del_server").attr("class","ventana_OFF");
+	cargaTabla();
 	}
-
 
 // abro modifica
 function AbroModifica(){
@@ -660,7 +676,6 @@ function AbroModifica(){
 }
 //enviar formulario de MODIFICA
 $("#btn_Modi").click(function(){
-	//todoListoParaAlta();
 	var conf = confirm("Esta seguro que desea modificar ? ");
 	if(conf==true){
 		modi();
@@ -670,11 +685,8 @@ $("#btn_Modi").click(function(){
 		$("#varietales_modi").val("");
 		$("#modificacion").attr("class","ventana_OFF");
 		$("#ventana_del_server").attr("class","ventana");
-		
 	}
 });
-
-
 
 //BAJA DE VINO
 function borrando(nombre){
@@ -684,53 +696,10 @@ function borrando(nombre){
 		$("#tablas").empty();
 		$("#ventana_del_server").attr("class","ventana");
 	}
-
-
 	
 };
 
-
-/*
-function llenaVarietales(){
-	
-	var objAjax = $.ajax({
-						
-						url: "./salidaJSONVarietal.php",
-						data: {	},
-						type:"GET",
-						success:function(respuesta , state){
-							
-							var objJSON = JSON.parse(respuesta);
-							objJSON.varietales.forEach(function(argValor , argIndice){
-								var objOpcion = document.createElement("option");
-								objOpcion.setAttribute("value" , argValor.Varietal);
-								objOpcion.innerHTML = argValor.Varietal;
-								objSelect.appendChild(objOpcion);
-																			
-							});//cierro el foreach
-
-						}	//cierra funcion asignada al success
-
-	});	//cierra ajax
-
-};  //cierro llenavarietal
-
-*/
-
 //valida las entradas al div de alta
-function todoListoParaAlta(){
-	if((objIngOrig.checkValidity() == true) && (objIngName.checkValidity() == true) && (objIngMark.checkValidity()==true)){
-
-		alert("hab");
-		$("#enviar").attr("disabled","false");
-
-	}
-	else {
-		alert("dis");
-		$("#enviar").attr("disabled","true");
-	};
-}
-
 
 function modi(){	
 	
@@ -791,13 +760,9 @@ function CompletaFichaNombre(nombre){
 
 }  //cierro CompletaFichaNombre
 
-
-
-
 function ModifiChange(NombredelVino){
 		CompletaFichaNombre(NombredelVino);
 		AbroModifica();
-		
 		
 }		
 
@@ -828,8 +793,7 @@ function alta(){
 						
 						url: "./alta.php",
 						data: {
-							
-							/*orden: $("#orden").val(),*/
+														
 							marcaV: $("#marca_alta").val(),
 							nombreV: $("#nombre_alta").val(),
 							paisV: $("#pais_alta").val(),
@@ -848,67 +812,75 @@ function alta(){
 
 }  //cierro alta	
 
+/*
+function llenaVarietales(){
+	
+	var objAjax = $.ajax({
+						
+						url: "./salidaJSONVarietal.php",
+						data: {	},
+						type:"GET",
+						success:function(respuesta , state){
+							
+							var objJSON = JSON.parse(respuesta);
+							objJSON.varietales.forEach(function(argValor , argIndice){
+								var objOpcion = document.createElement("option");
+								objOpcion.setAttribute("value" , argValor.Varietal);
+								objOpcion.innerHTML = argValor.Varietal;
+								objingvar.appendChild(objOpcion);
+																			
+							});//cierro el foreach
+
+						}	//cierra funcion asignada al success
+
+	});	//cierra ajax
+
+};  //cierro llenavarietal
+
+*/
 
 
 
-/*ver este keyup
-	$("#modal").keyup(function(){
-		todoListoParaAlta();
+function todoListoParaAlta()
+{
 
-	});*/
+	if(objIngOrig.checkValidity() && objIngMark.checkValidity() && objIngName.checkValidity() && objIngVar.checkValidity() ){
+			
+			objEnviar.disabled = false;
+			
+		}
+
+	else {
+			objEnviar.disabled = true;
+					
+		 }
+
+
+}
 
 
 
+//keyup de origen
+objIngOrig.onkeyup=function(){
+	
+	todoListoParaAlta();
+}
 
+//keyup de marca
+objIngMark.onkeyup=function(){
+	
+	todoListoParaAlta();
+}
+//keyup de nombre
+objIngName.onkeyup=function(){
+	
+	todoListoParaAlta();
+}
 
 
 
 </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

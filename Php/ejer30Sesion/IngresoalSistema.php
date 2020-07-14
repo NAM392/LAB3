@@ -8,9 +8,20 @@
 	$conexion = new mysqli(SERVER,USUARIO,PASS,BASE);
 
 	//si la conexion falla emite un cartel
-	if($conexion->connect_errno){
-		echo "Fallo la conexion" . $conexion->connect_errno; 
+	if($conexion->connect_errno<>0){
+		$puntero = fopen("./errores.log","a");
+		fwrite($puntero,"Fallo conexion base de datos");
+		fwrite($puntero,$conexion->connect_errno . "");
+
+		$fecha=date("Y-m-d");
+		fwrite($puntero,date("Y-m-d-H-i") . "");
+		fwrite($puntero,"\n");
+
+		fclose($puntero);
+		die();
+		
 	}
+
 	//variables del input
 	$usuario = $_GET['usuario'];
 	$password = md5($_GET['password']);
@@ -53,8 +64,12 @@
 	$_SESSION['ejercicio'] = session_id();
 	$_SESSION['usuario'] = $usuario;
 
-	echo "<p><button onclick=\"location.href = './app_modulo/ejer26BDAbm.html'\"> Ingrese a la aplicacion </button></p>";
+	echo "USUARIO : $usuario <br><br>";
+	echo "ID de Sesion : " . $_SESSION['ejercicio'] . " <br>";
+	echo "<br><br><br>";
 
+	echo "<p><button onclick=\"location.href = './app_modulo/ejerABM.php'\"> Ingrese a la aplicacion </button></p>";
+	echo "<br><br><br>";
 	echo "<p><button onclick=\"location.href = './destruirSesion.php'\"> Terminar sesion</button></p>";
 
 

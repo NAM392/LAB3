@@ -6,8 +6,9 @@ if(!isset($_SESSION['ejercicio'])){
 	header('location:./formularioDeLogin.html');
 	exit();
 }
-
-echo "atraccion fataaaaal";
+else{
+	header('location:./ejerABM.php');
+}
 
 
 
