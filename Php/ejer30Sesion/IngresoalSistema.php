@@ -64,8 +64,8 @@
 	$_SESSION['ejercicio'] = session_id();
 	$_SESSION['usuario'] = $usuario;
 
-	echo "USUARIO : $usuario <br><br>";
-	echo "ID de Sesion : " . $_SESSION['ejercicio'] . " <br>";
+	echo "<span style='color:blue' >USUARIO : </span> " . $usuario ." <br><br>";
+	echo "<span style='color:blue' >ID de Sesion : </span>" . $_SESSION['ejercicio'] . " <br>";
 	echo "<br><br><br>";
 
 	echo "<p><button onclick=\"location.href = './app_modulo/ejerABM.php'\"> Ingrese a la aplicacion </button></p>";
