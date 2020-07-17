@@ -7,7 +7,7 @@ if(!isset($_SESSION['ejercicio'])){
 	exit();
 }
 else{
-	header('location:./ejerABM.php');
+	header('location:./app_modulo/ejerABM.php');
 }
 
 

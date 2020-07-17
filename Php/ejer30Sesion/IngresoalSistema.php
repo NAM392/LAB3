@@ -53,18 +53,21 @@
 	//cierro la conexion con la base de datos
 	$conexion->close();
 
-	//echo $resultante;
+	
 	//muestro el resultado
 	if(!$resultante){
 		echo "<p><button onclick=\"location.href = './destruirSesion.php'\"> Ingreso Invalido</button></p>";
 		exit();
 	}
-
+	
 	session_start();
 	$_SESSION['ejercicio'] = session_id();
 	$_SESSION['usuario'] = $usuario;
 
+
+
 	echo "<span style='color:blue' >USUARIO : </span> " . $usuario ." <br><br>";
+	echo "<span style='color:blue' >INGRESÓ  : </span> " . GraboEntrada($usuario) ." VECES <br><br>";
 	echo "<span style='color:blue' >ID de Sesion : </span>" . $_SESSION['ejercicio'] . " <br>";
 	echo "<br><br><br>";
 
@@ -72,7 +75,39 @@
 	echo "<br><br><br>";
 	echo "<p><button onclick=\"location.href = './destruirSesion.php'\"> Terminar sesion</button></p>";
 
+	function GraboEntrada($ingreso){
 
+	if( $ingreso == "nico"){
+		$nombre_fichero = "./ingresoN.log";
+		$gestor = fopen($nombre_fichero, "r");
+		$contenido = fread($gestor, filesize($nombre_fichero));
+		fclose($gestor);
+		$ingresantes = $contenido + 1;
+		$puntero = fopen($nombre_fichero,"w");
+		fwrite($puntero,$ingresantes);
+		fclose($puntero);
+
+		return $ingresantes;
+
+	}
+
+	if( $ingreso == "rulo"){
+		$nombre_fichero = "./ingresoR.log";
+		$gestor = fopen($nombre_fichero, "r");
+		$contenido = fread($gestor, filesize($nombre_fichero));
+		fclose($gestor);
+		$ingresantes = $contenido + 1;
+		$puntero = fopen($nombre_fichero,"w");
+		fwrite($puntero,$ingresantes);
+		fclose($puntero);
+
+		return $ingresantes;
+
+	}
+
+
+
+	}
 
 
  ?>

@@ -8,9 +8,9 @@ if(!isset($_SESSION['ejercicio'])){
 <!-- HAGO ESTE EJERCICIO EN PHP PARA PROTEGERLO TAMBIEN CON LA SESION  -->
 <html>
 <head>
-	<title>ejer26DBAbm</title>
+	<title>ABM</title>
 <meta http-equiv="content-type" ; content="text/html" ; charset="utf-8">
-<link rel="icon" href="../../Argentina-icon.ico">
+<link rel="icon" href="../../../Argentina-icon.ico">
 <style>
 
 		/**/
@@ -694,6 +694,7 @@ function borrando(nombre){
 	if(confirmado == true){
 		baja(nombre);
 		$("#tablas").empty();
+		$("#Registros").empty();
 		$("#ventana_del_server").attr("class","ventana");
 	}
 	
