@@ -422,8 +422,8 @@
 		<div class="sec" >
 
 			<p class="fech" >Varietal</p>
-			<input type="text" name="" class="ini" id="varietales_modi" >
-			<!--<select  class="fecha" id="varietales_modi" ></select>-->
+			<!--<input type="text" name="" class="ini" id="varietales_modi" >-->
+			<select  class="fecha" id="varietales_modi" ></select>
 			<br><br><br><br>
 			<button id="btn_Modi" >Modificar</button>
 		</div>
@@ -622,6 +622,7 @@ $("#Varietal_Or").click(function(){
 $("#alta").click(function(){
 	$("#todo").attr("class","todoNONE");
 	$("#modal").attr("class","ventana");
+	llenaVarietales();
 	objIngMark.select();
 	
 
@@ -799,7 +800,7 @@ function alta(){
 
 }  //cierro alta	
 
-/*
+
 function llenaVarietales(){
 	
 	var objAjax = $.ajax({
@@ -824,7 +825,7 @@ function llenaVarietales(){
 
 };  //cierro llenavarietal
 
-*/
+/**/
 
 
 
